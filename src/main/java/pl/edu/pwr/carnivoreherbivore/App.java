@@ -5,7 +5,7 @@ public class App {
     private static int startingNumberOfCarnivores = 10;
     private static int startingNumberOfHerbivores = 10;
 
-    private void StartSimulation() {
+    private void startSimulation() {
 
     }
 

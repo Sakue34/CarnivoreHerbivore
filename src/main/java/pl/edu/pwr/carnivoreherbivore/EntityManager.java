@@ -2,18 +2,18 @@ package pl.edu.pwr.carnivoreherbivore;
 
 import java.util.ArrayList;
 
-public class EntityManager {
+class EntityManager {
     private ArrayList<Entity> entityList;
 
-    public void AddEntity(Entity entity) {
+    void addEntity(Entity entity) {
         entityList.add(entity);
     }
 
-    public EntityManager(int initialNumberOfEntities) {
+    EntityManager(int initialNumberOfEntities) {
         entityList = new ArrayList<>(initialNumberOfEntities);
     }
 
-    public void UpdateEveryEntity(float elapsedTime) {
+    void updateEveryEntity(float elapsedTime) {
 
     }
 

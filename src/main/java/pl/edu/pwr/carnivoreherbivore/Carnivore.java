@@ -9,7 +9,7 @@ class Carnivore extends Animal {
     }
 
     @Override
-    public void Update(float elapsedTime) {
+    public void update(float elapsedTime) {
 
     }
 }

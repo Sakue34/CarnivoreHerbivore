@@ -23,7 +23,7 @@ abstract class Entity {
         this.y = y;
     }
 
-    abstract public void Update(float elapsedTime);
+    abstract public void update(float elapsedTime);
 
     Entity(float x, float y) {
         this.x = x;
