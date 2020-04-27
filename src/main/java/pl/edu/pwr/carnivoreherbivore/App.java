@@ -7,15 +7,32 @@ public class App {
     private static int startingNumberOfCarnivores = 10;
     private static int startingNumberOfHerbivores = 10;
 
-    private void startSimulation() {
-        long timeStamp1;
-        long timeStamp2;
-        while (true) {
-            timeStamp1 = System.nanoTime();
+    private static void startSimulation() throws InterruptedException {
+        EntityManager entityManager = new EntityManager(startingNumberOfCarnivores + startingNumberOfHerbivores);
+
+        long time1 = System.nanoTime();
+        long time2;
+
+        float timeSoFar = 0.0F;
+
+        while (timeSoFar <= 11) {
+            time2 = System.nanoTime();
+            long elapsedNanoSeconds = time2 - time1;
+            time1 = time2;
+            float elapsedTime = (float)elapsedNanoSeconds / 1.0e9F;
+            elapsedTime *= speedOfSimulation;
+
+            entityManager.updateEveryEntity(elapsedTime);
+
+            //Test:
+            Thread.sleep(1000);
+            System.out.println(elapsedTime);
+            timeSoFar += elapsedTime;
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("Hello world!");
+        startSimulation();
     }
 }
