@@ -26,4 +26,17 @@ public class Vector2d {
         return (float) Math.atan2(y, x);
     }
 
+    void set(Vector2d v) {
+        this.x = v.x;
+        this.y = v.y;
+    }
+
+    static Vector2d toCartesian(float magnitude, float angle) {
+        return new Vector2d((float)(magnitude * Math.cos(angle)), (float)(magnitude * Math.sin(angle)));
+    }
+
+    void rotateTo(float angle) {
+        set(toCartesian(getLength(), angle));
+    }
+
 }
