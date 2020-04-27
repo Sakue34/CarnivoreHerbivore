@@ -9,7 +9,17 @@ class Herbivore extends Animal {
     }
 
     @Override
-    public void update(float elapsedTime) {
+    public void updatePosition(float elapsedTime) {
+
+    }
+
+    @Override
+    public void collideWithEntity(Entity entity) {
+
+    }
+
+    @Override
+    public void updateAI() {
 
     }
 }
