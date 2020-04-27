@@ -19,17 +19,20 @@ public class Vector2dTest {
         Vector2d vec = new Vector2d(0.86602540378F, 0.5F);
         float result = vec.getAngle();
         System.out.println(result);
-        assertTrue("Should return pi/6 [rad]", Math.abs(result - 0.52359877559F) <= Vector2d.FLOATING_POINT_ERROR_MARGIN);
+        assertTrue("Should return pi/6 [rad]",
+                Math.abs(result - 0.52359877559F) <= Vector2d.FLOATING_POINT_ERROR_MARGIN);
 
         vec = new Vector2d(0.5F, 0.86602540378F);
         result = vec.getAngle();
         System.out.println(result);
-        assertTrue("Should return pi/3 [rad]", Math.abs(result - 1.0471975512F) <= Vector2d.FLOATING_POINT_ERROR_MARGIN);
+        assertTrue("Should return pi/3 [rad]",
+                Math.abs(result - 1.0471975512F) <= Vector2d.FLOATING_POINT_ERROR_MARGIN);
 
         vec = new Vector2d(-0.70710678118F, -0.70710678118F);
         result = vec.getAngle();
         System.out.println(result);
-        assertTrue("Should return -3pi/4 [rad]", Math.abs(result - -2.35619449019F) <= Vector2d.FLOATING_POINT_ERROR_MARGIN);
+        assertTrue("Should return -3pi/4 [rad]",
+                Math.abs(result - -2.35619449019F) <= Vector2d.FLOATING_POINT_ERROR_MARGIN);
     }
 
     @Test
@@ -37,7 +40,8 @@ public class Vector2dTest {
         Vector2d vec = new Vector2d(2,2);
         float result = vec.getLength();
         System.out.println(result);
-        assertTrue("should return 2*sqrt(2) = 2.82842712475", Math.abs(result - 2.82842712475F) <= Vector2d.FLOATING_POINT_ERROR_MARGIN);
+        assertTrue("should return 2*sqrt(2) = 2.82842712475",
+                Math.abs(result - 2.82842712475F) <= Vector2d.FLOATING_POINT_ERROR_MARGIN);
     }
 
     @Test
@@ -45,7 +49,8 @@ public class Vector2dTest {
         Vector2d vec = new Vector2d(-2,-2);
         Vector2d result = vec.getNormalised();
         System.out.println(result.toString());
-        assertEquals("Normalised vector should be [-sqrt(2)/2 , -sqrt(2)/2]", result, new Vector2d(-0.70710678118F, -0.70710678118F));
+        assertEquals("Normalised vector should be [-sqrt(2)/2 , -sqrt(2)/2]",
+                result, new Vector2d(-0.70710678118F, -0.70710678118F));
     }
 
     @Test

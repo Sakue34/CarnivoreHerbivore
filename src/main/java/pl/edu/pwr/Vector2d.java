@@ -52,7 +52,8 @@ public class Vector2d {
             return true;
         if (obj instanceof Vector2d) {
             Vector2d vec = (Vector2d) obj;
-            return Math.abs(vec.x - x) <= FLOATING_POINT_ERROR_MARGIN && Math.abs(vec.y - y) <= FLOATING_POINT_ERROR_MARGIN;
+            return Math.abs(vec.x - x) <= FLOATING_POINT_ERROR_MARGIN
+                    && Math.abs(vec.y - y) <= FLOATING_POINT_ERROR_MARGIN;
         }
         return false;
     }

@@ -1,6 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-class Carnivore extends Animal {
+public class Carnivore extends Animal {
 
     private static final float rangeOfVision = 10.0F;
 

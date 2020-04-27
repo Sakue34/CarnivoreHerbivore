@@ -1,6 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-class Plant extends Entity {
+public class Plant extends Entity {
     public Plant(float x, float y) {
         super(x, y);
     }

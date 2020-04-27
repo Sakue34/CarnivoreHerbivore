@@ -1,6 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-abstract class Entity {
+public abstract class Entity {
     private float x;
     private float y;
 
