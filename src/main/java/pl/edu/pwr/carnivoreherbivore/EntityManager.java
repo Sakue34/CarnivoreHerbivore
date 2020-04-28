@@ -127,7 +127,7 @@ public class EntityManager {
 
         timeToNextLog -= elapsedTime;
         if(timeToNextLog <= 0.0F) {
-            System.out.println("8-------------------------------------------------------D");
+            System.out.println("=========================================");
             for (int i = 0; i < entityList.size(); i++) {
                 System.out.println(i + ": " + entityList.get(i).toString());
             }
