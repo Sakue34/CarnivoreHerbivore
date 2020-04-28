@@ -4,7 +4,9 @@ public class Plant extends Entity {
 
     public Plant(float x, float y) {
         super(x, y);
-        nutritionalValue = (float)(Math.random()) * 20 + 20;
+        nutritionalValue = (float)(Math.random()) * 20 + 10;
+        newX = x;
+        newY = y;
     }
 
     private float nutritionalValue;
