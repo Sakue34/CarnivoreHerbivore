@@ -25,7 +25,7 @@ public abstract class Animal extends Entity {
 
     protected void wander(float elapsedTime) {
         if (timeToNextWanderingTargetUpdate <= 0.0F) {
-            timeToNextWanderingTargetUpdate = 5.0F; //Magic value to be changed into a constant
+            timeToNextWanderingTargetUpdate = 3.0F; //Magic value to be changed into a constant
             velocity.rotateTo(((float)Math.random()) * 2 * (float)(Math.PI) - ((float)Math.PI));
         } else {
             timeToNextWanderingTargetUpdate -= elapsedTime;
@@ -44,6 +44,11 @@ public abstract class Animal extends Entity {
         if(energy <= 0.0F) {
             toBeDestroyed = true;
         }
+
+        if (newX < 0.0F) newX = 0.0F;
+        if (newX > App.MAP_WIDTH) newX = App.MAP_WIDTH;
+        if (newY < 0.0F) newY = 0.0F;
+        if (newY > App.MAP_HEIGHT) newY = App.MAP_HEIGHT;
     }
 
 
