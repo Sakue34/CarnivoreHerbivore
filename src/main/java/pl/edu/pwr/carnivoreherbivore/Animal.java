@@ -7,6 +7,7 @@ public abstract class Animal extends Entity {
     protected float energy;
     protected float stamina;
     protected Vector2d velocity;
+    protected float timeToNextWanderingTargetUpdate = 0.0F;
 
     public float getEnergy() {
         return energy;
@@ -22,4 +23,10 @@ public abstract class Animal extends Entity {
         super(x, y);
     }
 
+    protected void wander(float elapsedTime) {
+        if (timeToNextWanderingTargetUpdate <= 0.0F) {
+            timeToNextWanderingTargetUpdate = 5.0F; //Magic value to be changed into a constant
+            velocity.rotateTo(((float)Math.random()) * 2 * (float)(Math.PI) - ((float)Math.PI));
+        }
+    }
 }

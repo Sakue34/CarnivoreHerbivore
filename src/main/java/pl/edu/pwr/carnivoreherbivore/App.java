@@ -6,9 +6,13 @@ public class App {
     private static float speedOfSimulation = 1.0F;
     private static int startingNumberOfCarnivores = 10;
     private static int startingNumberOfHerbivores = 10;
+    private static int startingNumberOfPlants = 20;
+
+    public static final int MAP_WIDTH = 800;
+    public static final int MAP_HEIGHT = 600;
 
     private static void startSimulation() throws InterruptedException {
-        EntityManager entityManager = new EntityManager(startingNumberOfCarnivores + startingNumberOfHerbivores);
+        EntityManager entityManager = new EntityManager(startingNumberOfPlants, startingNumberOfHerbivores, startingNumberOfCarnivores);
 
         long time1 = System.nanoTime();
         long time2;

@@ -12,7 +12,7 @@ public class Herbivore extends Animal {
         super(x, y);
         speed = 45 + (float) Math.random() * 10;
         energy = 75 + (float) Math.random() * 50;
-
+        velocity = new Vector2d(Vector2d.getCartesian(speed, (float)Math.random() * 2 * (float)(Math.PI) - ((float)Math.PI)));
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Herbivore extends Animal {
     }
 
     @Override
-    public void updateAI(Entity nearestInterestingEntity) {
+    public void updateAI(Entity nearestInterestingEntity, float elapsedTime) {
         if (nearestInterestingEntity instanceof Plant) {
             Vector2d vector2d = new Vector2d(nearestInterestingEntity.newX - newX, nearestInterestingEntity.newY - newY);
             float angle = vector2d.getAngle();
@@ -36,9 +36,9 @@ public class Herbivore extends Animal {
             float angle = vector2d.getAngle();
             velocity.rotateTo(angle);
         }
-        
-
-
+        else {
+            wander(elapsedTime);
+        }
 
     }
 }

@@ -46,6 +46,6 @@ public abstract class Entity {
         this.toBeDestroyed = toBeDestroyed;
     }
 
-    void updateAI(Entity nearestInterestingEntity) { }
+    void updateAI(Entity nearestInterestingEntity, float elapsedTime) { }
 
 }
