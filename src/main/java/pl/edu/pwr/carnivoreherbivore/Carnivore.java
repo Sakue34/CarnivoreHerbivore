@@ -8,10 +8,7 @@ public class Carnivore extends Animal {
         super(x, y);
     }
 
-    @Override
-    public void updatePosition(float elapsedTime) {
 
-    }
 
     @Override
     public void collideWithEntity(Entity entity) {

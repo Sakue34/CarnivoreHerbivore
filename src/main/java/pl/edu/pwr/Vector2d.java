@@ -3,8 +3,8 @@ package pl.edu.pwr;
 import java.lang.Math;
 
 public class Vector2d {
-    float x;
-    float y;
+    public float x;
+    public float y;
 
     public static final float FLOATING_POINT_ERROR_MARGIN = 1.0e-6F;
 
