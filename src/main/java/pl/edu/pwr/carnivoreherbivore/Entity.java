@@ -1,8 +1,8 @@
 package pl.edu.pwr.carnivoreherbivore;
 
 public abstract class Entity {
-    private float x;
-    private float y;
+    protected float x;
+    protected float y;
 
     Entity(float x, float y) {
         this.x = x;
@@ -23,8 +23,8 @@ public abstract class Entity {
         this.y = y;
     }
 
-    private float newX;
-    private float newY;
+    protected float newX;
+    protected float newY;
 
     abstract public void updatePosition(float elapsedTime);
     abstract public void collideWithEntity(Entity entity);

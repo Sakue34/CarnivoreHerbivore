@@ -14,7 +14,9 @@ public class EntityManager {
     }
 
     public void updateEveryEntity(float elapsedTime) {
-
+        for(Entity entity: entityList) {
+            entity.updatePosition(elapsedTime);
+        }
     }
 
 
