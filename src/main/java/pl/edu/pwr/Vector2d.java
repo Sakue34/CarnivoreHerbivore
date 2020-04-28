@@ -8,9 +8,10 @@ public class Vector2d {
 
     public static final float FLOATING_POINT_ERROR_MARGIN = 1.0e-6F;
 
-    Vector2d() { }
 
-    Vector2d(float x, float y) {
+
+
+    public Vector2d(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -24,20 +25,20 @@ public class Vector2d {
         return new Vector2d(x / magnitude, y / magnitude);
     }
 
-    float getAngle() {
+    public float getAngle() {
         return (float) Math.atan2(y, x);
     }
 
-    void set(Vector2d v) {
+    public void set(Vector2d v) {
         this.x = v.x;
         this.y = v.y;
     }
 
-    static Vector2d getCartesian(float magnitude, float angle) {
+    public static Vector2d getCartesian(float magnitude, float angle) {
         return new Vector2d((float)(magnitude * Math.cos(angle)), (float)(magnitude * Math.sin(angle)));
     }
 
-    void rotateTo(float angle) {
+    public void rotateTo(float angle) {
         set(getCartesian(getLength(), angle));
     }
 
