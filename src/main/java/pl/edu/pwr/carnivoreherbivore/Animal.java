@@ -3,10 +3,16 @@ package pl.edu.pwr.carnivoreherbivore;
 import pl.edu.pwr.Vector2d;
 
 public abstract class Animal extends Entity {
-    private float speed;
-    private float energy;
-    private float stamina;
+    protected float speed;
+    protected float energy;
+    protected float stamina;
     protected Vector2d velocity;
+
+
+
+    public float getEnergy() {
+        return energy;
+    }
 
     @Override
     public void updatePosition(float elapsedTime) {
