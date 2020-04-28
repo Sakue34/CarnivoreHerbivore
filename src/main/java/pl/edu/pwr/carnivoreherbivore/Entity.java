@@ -30,7 +30,6 @@ public abstract class Entity {
 
     abstract public void collideWithEntity(Entity entity);
 
-
     private boolean toBeDestroyed = false;
 
     public boolean isToBeDestroyed() {

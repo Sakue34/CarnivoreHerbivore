@@ -10,8 +10,6 @@ public class Carnivore extends Animal {
         energy = 75 + (float) Math.random()*50;
     }
 
-
-
     @Override
     public void collideWithEntity(Entity entity) {
         if(entity instanceof Herbivore) {

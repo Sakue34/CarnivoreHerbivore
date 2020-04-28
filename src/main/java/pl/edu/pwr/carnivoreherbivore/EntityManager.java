@@ -1,6 +1,5 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-
 import java.util.ArrayList;
 import java.lang.Math;
 
@@ -36,8 +35,5 @@ public class EntityManager {
         entityList.removeIf(Entity::isToBeDestroyed); //IntelliJ I trust U
 
     }
-
-
-
 
 }

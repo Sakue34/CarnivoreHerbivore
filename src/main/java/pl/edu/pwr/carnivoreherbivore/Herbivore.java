@@ -13,8 +13,6 @@ public class Herbivore extends Animal {
 
     }
 
-
-
     @Override
     public void collideWithEntity(Entity entity) {
         if(entity instanceof Plant) {

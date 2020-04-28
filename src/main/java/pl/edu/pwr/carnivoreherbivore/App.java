@@ -24,8 +24,6 @@ public class App {
 
             entityManager.updateEveryEntity(elapsedTime);
 
-
-
             //Test:
             Thread.sleep(1000);
             System.out.println(elapsedTime);

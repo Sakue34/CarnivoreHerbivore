@@ -8,8 +8,6 @@ public abstract class Animal extends Entity {
     protected float stamina;
     protected Vector2d velocity;
 
-
-
     public float getEnergy() {
         return energy;
     }
