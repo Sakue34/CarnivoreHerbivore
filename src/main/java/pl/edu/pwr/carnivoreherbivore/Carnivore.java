@@ -1,5 +1,9 @@
 package pl.edu.pwr.carnivoreherbivore;
 
+import pl.edu.pwr.Vector2d;
+
+import java.util.Vector;
+
 public class Carnivore extends Animal {
 
     public static final float rangeOfVision = 10.0F;
@@ -20,6 +24,12 @@ public class Carnivore extends Animal {
 
     @Override
     public void updateAI(Entity nearestInterestingEntity) {
+        if(nearestInterestingEntity != null) {
+            Vector2d vector2d = new Vector2d(nearestInterestingEntity.newX - newX , nearestInterestingEntity.newY - newY);
+            float angle = vector2d.getAngle();
+            velocity.rotateTo(angle);
+        }
+
 
     }
 }

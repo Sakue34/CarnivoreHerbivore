@@ -1,5 +1,7 @@
 package pl.edu.pwr.carnivoreherbivore;
 
+import pl.edu.pwr.Vector2d;
+
 import java.lang.Math;
 
 public class Herbivore extends Animal {
@@ -8,15 +10,15 @@ public class Herbivore extends Animal {
 
     public Herbivore(float x, float y) {
         super(x, y);
-        speed = 45 + (float) Math.random()*10;
-        energy = 75 + (float) Math.random()*50;
+        speed = 45 + (float) Math.random() * 10;
+        energy = 75 + (float) Math.random() * 50;
 
     }
 
     @Override
     public void collideWithEntity(Entity entity) {
-        if(entity instanceof Plant) {
-            energy = energy + ((Plant)entity).getNutritionalValue();
+        if (entity instanceof Plant) {
+            energy = energy + ((Plant) entity).getNutritionalValue();
             entity.setToBeDestroyed(true);
         }
 
@@ -24,6 +26,19 @@ public class Herbivore extends Animal {
 
     @Override
     public void updateAI(Entity nearestInterestingEntity) {
+        if (nearestInterestingEntity instanceof Plant) {
+            Vector2d vector2d = new Vector2d(nearestInterestingEntity.newX - newX, nearestInterestingEntity.newY - newY);
+            float angle = vector2d.getAngle();
+            velocity.rotateTo(angle);
+        }
+        else if(nearestInterestingEntity instanceof Carnivore) {
+            Vector2d vector2d = new Vector2d(-(nearestInterestingEntity.newX - newX), -(nearestInterestingEntity.newY - newY));
+            float angle = vector2d.getAngle();
+            velocity.rotateTo(angle);
+        }
+        
+
+
 
     }
 }
