@@ -8,19 +8,21 @@ public class Vector2d {
 
     public static final float FLOATING_POINT_ERROR_MARGIN = 1.0e-6F;
 
-
-
-
     public Vector2d(float x, float y) {
         this.x = x;
         this.y = y;
     }
 
-    float getLength() {
+    public Vector2d(Vector2d vec) {
+        x = vec.x;
+        y = vec.y;
+    }
+
+    public float getLength() {
         return (float) Math.sqrt(x*x + y*y);
     }
 
-    Vector2d getNormalised() {
+    public Vector2d getNormalised() {
         float magnitude = getLength();
         return new Vector2d(x / magnitude, y / magnitude);
     }
@@ -40,6 +42,10 @@ public class Vector2d {
 
     public void rotateTo(float angle) {
         set(getCartesian(getLength(), angle));
+    }
+
+    public Vector2d getMultiplied(float multiplier) {
+        return new Vector2d(x * multiplier, y * multiplier);
     }
 
     @Override
