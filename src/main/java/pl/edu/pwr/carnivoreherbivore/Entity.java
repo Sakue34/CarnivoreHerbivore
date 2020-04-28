@@ -27,9 +27,19 @@ public abstract class Entity {
     protected float newY;
 
     abstract public void updatePosition(float elapsedTime);
+
     abstract public void collideWithEntity(Entity entity);
 
+
     private boolean toBeDestroyed = false;
+
+    public boolean isToBeDestroyed() {
+        return toBeDestroyed;
+    }
+
+    public void setToBeDestroyed(boolean toBeDestroyed) {
+        this.toBeDestroyed = toBeDestroyed;
+    }
 
     abstract void updateAI();
 
