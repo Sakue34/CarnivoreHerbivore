@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class App {
     private static float speedOfSimulation = 1.0F;
-    private static int startingNumberOfCarnivores = 10;
-    private static int startingNumberOfHerbivores = 15;
-    private static int startingNumberOfPlants = 40;
+    private static int startingNumberOfCarnivores = 8;
+    private static int startingNumberOfHerbivores = 25;
+    private static int startingNumberOfPlants = 80;
 
-    public static final int MAP_WIDTH = 400;
-    public static final int MAP_HEIGHT = 400;
+    public static final int MAP_WIDTH = 800;
+    public static final int MAP_HEIGHT = 600;
 
     private static void startSimulation() throws InterruptedException {
         EntityManager entityManager = new EntityManager(startingNumberOfPlants, startingNumberOfHerbivores, startingNumberOfCarnivores);
@@ -30,7 +30,7 @@ public class App {
             entityManager.updateEveryEntity(elapsedTime);
 
             //Test:
-            Thread.sleep(10);
+           // Thread.sleep(1);
             //System.out.println(elapsedTime);
 
             //Scanner scanner = new Scanner(System.in);
