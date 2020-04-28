@@ -18,6 +18,4 @@ public class Plant extends Entity {
     @Override
     public void collideWithEntity(Entity entity) { }
 
-    @Override
-    public void updateAI() { }
 }

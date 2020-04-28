@@ -2,7 +2,7 @@ package pl.edu.pwr.carnivoreherbivore;
 
 public class Carnivore extends Animal {
 
-    private static final float rangeOfVision = 10.0F;
+    public static final float rangeOfVision = 10.0F;
 
     public Carnivore(float x, float y) {
         super(x, y);
@@ -19,7 +19,7 @@ public class Carnivore extends Animal {
     }
 
     @Override
-    public void updateAI() {
+    public void updateAI(Entity nearestInterestingEntity) {
 
     }
 }

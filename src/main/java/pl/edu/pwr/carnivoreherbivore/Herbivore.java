@@ -4,7 +4,7 @@ import java.lang.Math;
 
 public class Herbivore extends Animal {
 
-    private static final float rangeOfVision = 10.0F;
+    public static final float rangeOfVision = 10.0F;
 
     public Herbivore(float x, float y) {
         super(x, y);
@@ -23,7 +23,7 @@ public class Herbivore extends Animal {
     }
 
     @Override
-    public void updateAI() {
+    public void updateAI(Entity nearestInterestingEntity) {
 
     }
 }

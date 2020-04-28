@@ -26,6 +26,12 @@ public abstract class Entity {
     protected float newX;
     protected float newY;
 
+    public static float getDistanceBetweenNewXY(Entity entity, Entity other) {
+        float distanceX = entity.newX - other.newX;
+        float distanceY = entity.newY - other.newY;
+        return (float) Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+    }
+
     abstract public void updatePosition(float elapsedTime);
 
     abstract public void collideWithEntity(Entity entity);
@@ -40,7 +46,6 @@ public abstract class Entity {
         this.toBeDestroyed = toBeDestroyed;
     }
 
-    abstract void updateAI();
-
+    void updateAI(Entity nearestInterestingEntity) { }
 
 }
