@@ -28,21 +28,24 @@ public class EntityManager {
         }
     }
 
-    public void updateEveryEntity(float elapsedTime) {
-        for(Entity entity: entityList) {
-            entity.updatePosition(elapsedTime);
-        }
+    //temp
+    private float timeToNextLog = 1.0F;
 
+    public void updateEveryEntity(float elapsedTime) {
         for(Entity entity: entityList) {
             for(Entity other: entityList) {
                 if (entity.x != other.x && entity.y != other.y) {
 
                     // Constant to define!
-                    if (Entity.getDistanceBetweenNewXY(entity, other) < 0.1F) {
+                    if (Entity.getDistanceBetween(entity, other) < 1.0F) {
                         entity.collideWithEntity(other);
                     }
                 }
             }
+        }
+
+        for(Entity entity: entityList) {
+            entity.updatePositionNewXY(elapsedTime);
         }
 
         entityList.removeIf(Entity::isToBeDestroyed); //IntelliJ I trust U
@@ -116,6 +119,19 @@ public class EntityManager {
                     entity.updateAI(nearestPlant, elapsedTime);
                 }
             }
+        }
+
+        for(Entity entity : entityList) {
+            entity.updateFinalPosition();
+        }
+
+        timeToNextLog -= elapsedTime;
+        if(timeToNextLog <= 0.0F) {
+            System.out.println("8-------------------------------------------------------D");
+            for (int i = 0; i < entityList.size(); i++) {
+                System.out.println(i + ": " + entityList.get(i).toString());
+            }
+            timeToNextLog = 1.0F;
         }
     }
     

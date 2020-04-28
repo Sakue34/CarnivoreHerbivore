@@ -1,12 +1,11 @@
 package pl.edu.pwr.carnivoreherbivore;
 
 import pl.edu.pwr.Vector2d;
-
 import java.lang.Math;
 
 public class Herbivore extends Animal {
 
-    public static final float rangeOfVision = 10.0F;
+    public static final float rangeOfVision = 50.0F;
 
     public Herbivore(float x, float y) {
         super(x, y);
@@ -26,6 +25,8 @@ public class Herbivore extends Animal {
 
     @Override
     public void updateAI(Entity nearestInterestingEntity, float elapsedTime) {
+        super.updateAI(nearestInterestingEntity, elapsedTime);
+
         if (nearestInterestingEntity instanceof Plant) {
             Vector2d vector2d = new Vector2d(nearestInterestingEntity.newX - newX, nearestInterestingEntity.newY - newY);
             float angle = vector2d.getAngle();
@@ -39,6 +40,10 @@ public class Herbivore extends Animal {
         else {
             wander(elapsedTime);
         }
+    }
 
+    @Override
+    public String toString() {
+        return "Herbivore [" + x + " , " + y + "], Energy: " + energy;
     }
 }

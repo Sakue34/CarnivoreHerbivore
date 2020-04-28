@@ -1,15 +1,16 @@
 package pl.edu.pwr.carnivoreherbivore;
 
 import java.lang.System;
+import java.util.Scanner;
 
 public class App {
     private static float speedOfSimulation = 1.0F;
     private static int startingNumberOfCarnivores = 10;
-    private static int startingNumberOfHerbivores = 10;
-    private static int startingNumberOfPlants = 20;
+    private static int startingNumberOfHerbivores = 15;
+    private static int startingNumberOfPlants = 40;
 
-    public static final int MAP_WIDTH = 800;
-    public static final int MAP_HEIGHT = 600;
+    public static final int MAP_WIDTH = 400;
+    public static final int MAP_HEIGHT = 400;
 
     private static void startSimulation() throws InterruptedException {
         EntityManager entityManager = new EntityManager(startingNumberOfPlants, startingNumberOfHerbivores, startingNumberOfCarnivores);
@@ -17,9 +18,9 @@ public class App {
         long time1 = System.nanoTime();
         long time2;
 
-        float timeSoFar = 0.0F;
+        float logRefreshTimer = 3.0F;
 
-        while (timeSoFar <= 11) {
+        while (true) {
             time2 = System.nanoTime();
             long elapsedNanoSeconds = time2 - time1;
             time1 = time2;
@@ -29,14 +30,15 @@ public class App {
             entityManager.updateEveryEntity(elapsedTime);
 
             //Test:
-            Thread.sleep(1000);
-            System.out.println(elapsedTime);
-            timeSoFar += elapsedTime;
+            Thread.sleep(10);
+            //System.out.println(elapsedTime);
+
+            //Scanner scanner = new Scanner(System.in);
+            //String buffer = scanner.nextLine();
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("Hello world!");
         startSimulation();
     }
 }

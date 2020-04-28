@@ -32,11 +32,17 @@ public abstract class Entity {
         return (float) Math.sqrt(distanceX * distanceX + distanceY * distanceY);
     }
 
-    abstract public void updatePosition(float elapsedTime);
+    public static float getDistanceBetween(Entity entity, Entity other) {
+        float distanceX = entity.x - other.x;
+        float distanceY = entity.y - other.y;
+        return (float) Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+    }
+
+    abstract public void updatePositionNewXY(float elapsedTime);
 
     abstract public void collideWithEntity(Entity entity);
 
-    private boolean toBeDestroyed = false;
+    protected boolean toBeDestroyed = false;
 
     public boolean isToBeDestroyed() {
         return toBeDestroyed;
@@ -46,6 +52,8 @@ public abstract class Entity {
         this.toBeDestroyed = toBeDestroyed;
     }
 
-    void updateAI(Entity nearestInterestingEntity, float elapsedTime) { }
+    public void updateAI(Entity nearestInterestingEntity, float elapsedTime) { }
+
+    public void updateFinalPosition() { }
 
 }
