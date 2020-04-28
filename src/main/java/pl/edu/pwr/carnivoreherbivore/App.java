@@ -1,7 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore;
 
 import java.lang.System;
-import java.util.Scanner;
 
 public class App {
     private static float speedOfSimulation = 1.0F;
@@ -12,13 +11,11 @@ public class App {
     public static final int MAP_WIDTH = 800;
     public static final int MAP_HEIGHT = 600;
 
-    private static void startSimulation() throws InterruptedException {
+    private static void startSimulation() {
         EntityManager entityManager = new EntityManager(startingNumberOfPlants, startingNumberOfHerbivores, startingNumberOfCarnivores);
 
         long time1 = System.nanoTime();
         long time2;
-
-        float logRefreshTimer = 3.0F;
 
         while (true) {
             time2 = System.nanoTime();
@@ -28,17 +25,10 @@ public class App {
             elapsedTime *= speedOfSimulation;
 
             entityManager.updateEveryEntity(elapsedTime);
-
-            //Test:
-           // Thread.sleep(1);
-            //System.out.println(elapsedTime);
-
-            //Scanner scanner = new Scanner(System.in);
-            //String buffer = scanner.nextLine();
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         startSimulation();
     }
 }
