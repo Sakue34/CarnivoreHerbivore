@@ -3,13 +3,13 @@ package pl.edu.pwr.carnivoreherbivore;
 import java.lang.System;
 
 public class App {
-    private static float speedOfSimulation = 1.0F;
-    private static int startingNumberOfCarnivores = 8;
-    private static int startingNumberOfHerbivores = 25;
-    private static int startingNumberOfPlants = 80;
+    private static float speedOfSimulation;
+    private static int startingNumberOfCarnivores;
+    private static int startingNumberOfHerbivores;
+    private static int startingNumberOfPlants;
 
-    public static final int MAP_WIDTH = 800;
-    public static final int MAP_HEIGHT = 600;
+    public static int MAP_WIDTH;
+    public static int MAP_HEIGHT;
 
     private static void startSimulation() {
         EntityManager entityManager = new EntityManager(startingNumberOfPlants, startingNumberOfHerbivores, startingNumberOfCarnivores);
@@ -27,8 +27,33 @@ public class App {
             entityManager.updateEveryEntity(elapsedTime);
         }
     }
-
     public static void main(String[] args) {
+
+        ParametersAsker.enterParameters();
         startSimulation();
+    }
+
+    public static void setSpeedOfSimulation(float speedOfSimulation) {
+        App.speedOfSimulation = speedOfSimulation;
+    }
+
+    public static void setStartingNumberOfCarnivores(int startingNumberOfCarnivores) {
+        App.startingNumberOfCarnivores = startingNumberOfCarnivores;
+    }
+
+    public static void setStartingNumberOfHerbivores(int startingNumberOfHerbivores) {
+        App.startingNumberOfHerbivores = startingNumberOfHerbivores;
+    }
+
+    public static void setStartingNumberOfPlants(int startingNumberOfPlants) {
+        App.startingNumberOfPlants = startingNumberOfPlants;
+    }
+
+    public static void setMapWidth(int mapWidth) {
+        MAP_WIDTH = mapWidth;
+    }
+
+    public static void setMapHeight(int mapHeight) {
+        MAP_HEIGHT = mapHeight;
     }
 }
