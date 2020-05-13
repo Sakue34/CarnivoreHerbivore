@@ -7,12 +7,11 @@ public class App {
     private static int startingNumberOfCarnivores;
     private static int startingNumberOfHerbivores;
     private static int startingNumberOfPlants;
-
-    public static int MAP_WIDTH;
-    public static int MAP_HEIGHT;
+    private static int MAP_WIDTH;
+    private static int MAP_HEIGHT;
 
     private static void startSimulation() {
-        EntityManager entityManager = new EntityManager(startingNumberOfPlants, startingNumberOfHerbivores, startingNumberOfCarnivores);
+        EntityManager entityManager = new EntityManager(getStartingNumberOfPlants(), getStartingNumberOfHerbivores(), getStartingNumberOfCarnivores());
 
         long time1 = System.nanoTime();
         long time2;
@@ -22,7 +21,7 @@ public class App {
             long elapsedNanoSeconds = time2 - time1;
             time1 = time2;
             float elapsedTime = (float)elapsedNanoSeconds / 1.0e9F;
-            elapsedTime *= speedOfSimulation;
+            elapsedTime *= getSpeedOfSimulation();
 
             entityManager.updateEveryEntity(elapsedTime);
         }
@@ -55,5 +54,29 @@ public class App {
 
     public static void setMapHeight(int mapHeight) {
         MAP_HEIGHT = mapHeight;
+    }
+
+    public static int getMapWidth() {
+        return MAP_WIDTH;
+    }
+
+    public static int getMapHeight() {
+        return MAP_HEIGHT;
+    }
+
+    public static float getSpeedOfSimulation() {
+        return speedOfSimulation;
+    }
+
+    public static int getStartingNumberOfCarnivores() {
+        return startingNumberOfCarnivores;
+    }
+
+    public static int getStartingNumberOfHerbivores() {
+        return startingNumberOfHerbivores;
+    }
+
+    public static int getStartingNumberOfPlants() {
+        return startingNumberOfPlants;
     }
 }

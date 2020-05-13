@@ -46,9 +46,9 @@ public abstract class Animal extends Entity {
         }
 
         if (newX < 0.0F) newX = 0.0F;
-        if (newX > App.MAP_WIDTH) newX = App.MAP_WIDTH;
+        if (newX > App.getMapWidth()) newX = App.getMapWidth();
         if (newY < 0.0F) newY = 0.0F;
-        if (newY > App.MAP_HEIGHT) newY = App.MAP_HEIGHT;
+        if (newY > App.getMapHeight()) newY = App.getMapHeight();
     }
 
 
