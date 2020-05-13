@@ -2,7 +2,7 @@ package pl.edu.pwr.carnivoreherbivore;
 
 import pl.edu.pwr.Vector2d;
 
-public abstract class Animal extends Entity {
+public abstract class Animal extends Pawn {
     protected float speed;
     protected float energy;
     protected float stamina;
@@ -39,7 +39,7 @@ public abstract class Animal extends Entity {
     }
 
     @Override
-    public void updateAI(Entity nearestInterestingEntity, float elapsedTime) {
+    public void updateAI(Pawn nearestInterestingPawn, float elapsedTime) {
         energy -= elapsedTime;
         if(energy <= 0.0F) {
             toBeDestroyed = true;

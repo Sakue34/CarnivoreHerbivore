@@ -1,6 +1,7 @@
 package pl.edu.pwr.carnivoreherbivore;
 
 import java.lang.System;
+import pl.edu.pwr.gui.GUIMain;
 
 public class App {
     private static float speedOfSimulation;
@@ -11,8 +12,8 @@ public class App {
     private static int MAP_HEIGHT;
 
     private static void startSimulation() {
-        EntityManager entityManager = new EntityManager(getStartingNumberOfPlants(), getStartingNumberOfHerbivores(), getStartingNumberOfCarnivores());
-
+        PawnManager pawnManager = new PawnManager(getStartingNumberOfPlants(), getStartingNumberOfHerbivores(), getStartingNumberOfCarnivores());
+        GUIMain guiMain = new GUIMain(pawnManager);
         long time1 = System.nanoTime();
         long time2;
 
@@ -23,11 +24,10 @@ public class App {
             float elapsedTime = (float)elapsedNanoSeconds / 1.0e9F;
             elapsedTime *= getSpeedOfSimulation();
 
-            entityManager.updateEveryEntity(elapsedTime);
+            pawnManager.updateEveryEntity(elapsedTime);
         }
     }
     public static void main(String[] args) {
-
         ParametersAsker.enterParameters();
         startSimulation();
     }

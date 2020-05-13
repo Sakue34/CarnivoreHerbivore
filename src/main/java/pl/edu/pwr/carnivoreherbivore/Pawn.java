@@ -1,10 +1,17 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-public abstract class Entity {
+import java.awt.*;
+
+public abstract class Pawn {
     protected float x;
     protected float y;
 
-    Entity(float x, float y) {
+    Color color;
+    int radius;
+
+    public abstract void draw(Graphics g);
+
+    Pawn(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -26,21 +33,21 @@ public abstract class Entity {
     protected float newX;
     protected float newY;
 
-    public static float getDistanceBetweenNewXY(Entity entity, Entity other) {
-        float distanceX = entity.newX - other.newX;
-        float distanceY = entity.newY - other.newY;
+    public static float getDistanceBetweenNewXY(Pawn pawn, Pawn other) {
+        float distanceX = pawn.newX - other.newX;
+        float distanceY = pawn.newY - other.newY;
         return (float) Math.sqrt(distanceX * distanceX + distanceY * distanceY);
     }
 
-    public static float getDistanceBetween(Entity entity, Entity other) {
-        float distanceX = entity.x - other.x;
-        float distanceY = entity.y - other.y;
+    public static float getDistanceBetween(Pawn pawn, Pawn other) {
+        float distanceX = pawn.x - other.x;
+        float distanceY = pawn.y - other.y;
         return (float) Math.sqrt(distanceX * distanceX + distanceY * distanceY);
     }
 
     abstract public void updatePositionNewXY(float elapsedTime);
 
-    abstract public void collideWithEntity(Entity entity);
+    abstract public void collideWithEntity(Pawn pawn);
 
     protected boolean toBeDestroyed = false;
 
@@ -52,7 +59,7 @@ public abstract class Entity {
         this.toBeDestroyed = toBeDestroyed;
     }
 
-    public void updateAI(Entity nearestInterestingEntity, float elapsedTime) { }
+    public void updateAI(Pawn nearestInterestingPawn, float elapsedTime) { }
 
     public void updateFinalPosition() { }
 
