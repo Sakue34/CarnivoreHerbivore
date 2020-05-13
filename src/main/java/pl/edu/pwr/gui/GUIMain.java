@@ -12,10 +12,6 @@ public class GUIMain {
     public static final int MAP_WIDTH = 1024;
     public static final int MAP_HEIGHT = 800;
 
-   /* public static void main(String[] args) {
-        GUIMain main = new GUIMain();
-   } */
-
     public GUIMain(PawnManager pawnManager) {
         EventQueue.invokeLater(new Runnable() {
             @Override

@@ -47,6 +47,6 @@ public class Carnivore extends Animal {
     @Override
     public void draw(Graphics g) {
         g.setColor(color);
-        g.fillOval((int)x, (int)y, radius * 2, radius * 2);
+        g.fillOval((int)x - radius , (int)y - radius, radius * 2, radius * 2);
     }
 }
