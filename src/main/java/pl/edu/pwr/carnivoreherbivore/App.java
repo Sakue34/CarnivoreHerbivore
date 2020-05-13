@@ -1,6 +1,8 @@
 package pl.edu.pwr.carnivoreherbivore;
 
 import java.lang.System;
+import java.util.ArrayList;
+
 import pl.edu.pwr.gui.GUIMain;
 
 public class App {
@@ -13,7 +15,8 @@ public class App {
 
     private static void startSimulation() {
         PawnManager pawnManager = new PawnManager(getStartingNumberOfPlants(), getStartingNumberOfHerbivores(), getStartingNumberOfCarnivores());
-        GUIMain guiMain = new GUIMain(pawnManager);
+        ArrayList<Pawn> pawnListCopy = new ArrayList<Pawn>(pawnManager.getPawnList());
+        GUIMain guiMain = new GUIMain(pawnListCopy);
         long time1 = System.nanoTime();
         long time2;
 
@@ -24,6 +27,8 @@ public class App {
             float elapsedTime = (float)elapsedNanoSeconds / 1.0e9F;
             elapsedTime *= getSpeedOfSimulation();
 
+            pawnListCopy = new ArrayList<Pawn>(pawnManager.getPawnList());
+            guiMain.SetNewPawnList(pawnListCopy);
             pawnManager.updateEveryEntity(elapsedTime);
         }
     }

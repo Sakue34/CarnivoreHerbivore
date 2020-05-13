@@ -14,7 +14,7 @@ public class Herbivore extends Animal {
         speed = 45 + (float) Math.random() * 10;
         energy = 75 + (float) Math.random() * 50;
         velocity = new Vector2d(Vector2d.getCartesian(speed, (float)Math.random() * 2 * (float)(Math.PI) - ((float)Math.PI)));
-        color = Color.decode("0x77FF66");
+        color = Color.decode("0x77BA66");
         radius = 8;
     }
 

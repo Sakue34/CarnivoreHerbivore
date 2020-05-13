@@ -4,15 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import pl.edu.pwr.carnivoreherbivore.PawnManager;
+import java.util.ArrayList;
+
+import pl.edu.pwr.carnivoreherbivore.Pawn;
 
 public class TestPane extends JPanel {
 
-    PawnManager pawnManager;
+    public ArrayList<Pawn> pawnList;
 
-    public TestPane(PawnManager pawnManager) {
-        this.pawnManager = pawnManager;
-        Timer timer = new Timer(1, new ActionListener() {
+    public TestPane(ArrayList<Pawn> pawnList) {
+        this.pawnList = pawnList;
+        Timer timer = new Timer(0, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 repaint();
@@ -30,8 +32,12 @@ public class TestPane extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        for (int i = 0; i < pawnManager.getPawnList().size(); i++) {
-            PawnDrawManager.drawEveryEntity(pawnManager.getPawnList(), g);
+        for (int i = 0; i < pawnList.size(); i++) {
+            PawnDrawManager.drawEveryEntity(pawnList, g);
         }
+    }
+
+    public void SetNewPawnList(ArrayList<Pawn> pawnArrayList) {
+        pawnList = pawnArrayList;
     }
 }
