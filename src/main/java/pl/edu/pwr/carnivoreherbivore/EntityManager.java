@@ -13,18 +13,18 @@ public class EntityManager {
         entityList = new ArrayList<>(numberOfPlants + numberOfHerbivores + numberOfCarnivores);
 
         for(int i = 0; i < numberOfPlants; i++) {
-            entityList.add(new Plant((float)(Math.random() * App.MAP_WIDTH),
-                    (float)(Math.random() * App.MAP_HEIGHT)));
+            entityList.add(new Plant((float)(Math.random() * App.getMapWidth()),
+                    (float)(Math.random() * App.getMapHeight())));
         }
 
         for(int i = 0; i < numberOfHerbivores; i++) {
-            entityList.add(new Herbivore((float)(Math.random() * App.MAP_WIDTH),
-                    (float)(Math.random() * App.MAP_HEIGHT)));
+            entityList.add(new Herbivore((float)(Math.random() * App.getMapWidth()),
+                    (float)(Math.random() * App.getMapHeight())));
         }
 
         for(int i = 0; i < numberOfCarnivores; i++) {
-            entityList.add(new Carnivore((float)(Math.random() * App.MAP_WIDTH),
-                    (float)(Math.random() * App.MAP_HEIGHT)));
+            entityList.add(new Carnivore((float)(Math.random() * App.getMapWidth()),
+                    (float)(Math.random() * App.getMapHeight())));
         }
     }
 
