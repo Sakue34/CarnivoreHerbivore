@@ -1,7 +1,5 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

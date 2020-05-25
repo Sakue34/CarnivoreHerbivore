@@ -6,7 +6,7 @@ public abstract class Pawn {
     protected float x;
     protected float y;
 
-    Color color;
+    protected Color color;
     int radius;
 
     public abstract void draw(Graphics g);

@@ -33,8 +33,14 @@ public class App {
         }
     }
     public static void main(String[] args) {
-        ParametersAsker.enterParameters();
-        startSimulation();
+        //ParametersAsker.enterParameters();
+        //startSimulation();
+
+        ConfigProvider configProvider = new DefaultParametersProvider();
+        SimulationParameters simulationParameters = configProvider.get();
+        SimulationCreator simulationCreator = new SimulationCreator();
+        Simulation simulation = simulationCreator.Create(simulationParameters);
+        simulation.startSimulation();
     }
 
     public static void setSpeedOfSimulation(float speedOfSimulation) {
