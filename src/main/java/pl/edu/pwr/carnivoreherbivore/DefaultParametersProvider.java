@@ -4,8 +4,8 @@ package pl.edu.pwr.carnivoreherbivore;
 public class DefaultParametersProvider implements ConfigProvider{
     public SimulationParameters get() {
         SimulationParameters sP = new SimulationParameters();
-        sP.mapHeight = 600;
-        sP.mapWidth = 800;
+        sP.mapHeight = 800;
+        sP.mapWidth = 1024;
         sP.speedOfSimulationMultiplier = 1.0F;
         sP.startingNumberOfPlants = 50;
         sP.startingNumberOfHerbivores = 20;

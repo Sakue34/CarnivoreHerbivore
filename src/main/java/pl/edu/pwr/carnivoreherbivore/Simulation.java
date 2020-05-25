@@ -2,12 +2,12 @@ package pl.edu.pwr.carnivoreherbivore;
 
 public final class Simulation {
     private SimulationParameters simulationParameters;
-    private Map map = null;
+    private SimulationMap simulationMap;
     private boolean shouldSimulationRun = true;
 
-    public Simulation(SimulationParameters simulationParameters, Map map) {
+    public Simulation(SimulationParameters simulationParameters, SimulationMap simulationMap) {
         this.simulationParameters = simulationParameters;
-        this.map = map;
+        this.simulationMap = simulationMap;
     }
 
     public void startSimulation() {
