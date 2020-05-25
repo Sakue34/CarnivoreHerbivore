@@ -1,13 +1,37 @@
 package pl.edu.pwr.carnivoreherbivore;
 
+import pl.edu.pwr.Vector2d;
+
 import java.awt.*;
 
 public abstract class Pawn {
     protected float x;
     protected float y;
 
+    protected float energy;
     protected Color color;
-    int radius;
+    protected int radius;
+    protected Vector2d velocity;
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setVelocity(Vector2d velocity) {
+        this.velocity = velocity;
+    }
+
+    public Vector2d getVelocity() {
+        return velocity;
+    }
+
+    public void consumeEnergy(float elapsedTime) { }
+
+    public boolean isOutOfEnergy() {
+        return false;
+    }
+
+    public void addEnergy(float energy) { }
 
     public abstract void draw(Graphics g);
 

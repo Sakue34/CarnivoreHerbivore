@@ -17,4 +17,10 @@ public class SimulationParameters {
     public float plantRadius;
     public float herbivoreRadius;
     public float carnivoreRadius;
+    public float herbivoreSightRange;
+    public float carnivoreSightRange;
+    public float baseHerbivoreNutritionalValue;
+    public int numberOfPawnsToEndSimulation;
+    public float chanceToSetNewRandomHerbivoreWanderDirection;
+    public float chanceToSetNewRandomCarnivoreWanderDirection;
 }

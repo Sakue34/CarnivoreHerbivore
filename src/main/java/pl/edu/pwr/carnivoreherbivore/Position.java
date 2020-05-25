@@ -9,14 +9,14 @@ public class Position {
         this.y = y;
     }
 
-    public Position() {
-        x = 0;
-        y = 0;
-    }
-
     public static Position getRandomPosition(float maxX, float maxY) {
         float x = (float)Math.random() * maxX;
         float y = (float)Math.random() * maxY;
         return new Position(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return "Position : (" + x + ", " + y + ")";
     }
 }

@@ -1,31 +1,47 @@
 package pl.edu.pwr.carnivoreherbivore;
 
 public final class Simulation {
-    private SimulationParameters simulationParameters;
-    private SimulationMap simulationMap;
-    private boolean shouldSimulationRun = true;
+    private final SimulationParameters simulationParameters;
+    private final SimulationMap simulationMap;
+    private final ProgressOutput progressOutput;
 
-    public Simulation(SimulationParameters simulationParameters, SimulationMap simulationMap) {
+    public Simulation(SimulationParameters simulationParameters, SimulationMap simulationMap, ProgressOutput progressOutput) {
         this.simulationParameters = simulationParameters;
         this.simulationMap = simulationMap;
+        this.progressOutput = progressOutput;
     }
 
     public void startSimulation() {
-        //main loop
-
         long time1 = System.nanoTime();
         long time2;
 
+        boolean shouldSimulationRun = true;
         while (shouldSimulationRun) {
             time2 = System.nanoTime();
             long elapsedNanoSeconds = time2 - time1;
             time1 = time2;
             float elapsedTime = (float)elapsedNanoSeconds / 1.0e9F;
             elapsedTime *= simulationParameters.speedOfSimulationMultiplier;
-            //UpdateSimulationLogic();
-            //DisplaySimulationProgress();
+            boolean simulationShouldEnd = updateSimulationLogic(elapsedTime);
+            if (simulationShouldEnd)
+                shouldSimulationRun = false;
+            outputSimulationProgress();
         }
+    }
 
+    private boolean updateSimulationLogic(float elapsedTime) {
+        SimulationLogic simulationLogic = new SimulationLogic(simulationParameters, simulationMap);
 
+        simulationLogic.updatePawnsVelocity();
+        simulationLogic.movePawns(elapsedTime);
+        simulationLogic.makePawnsConsumeEnergy(elapsedTime);
+        simulationLogic.checkPawnsForStarvation();
+        simulationLogic.boundPawnsWithinMap();
+        simulationLogic.checkPawnsForCollision();
+        return simulationLogic.shouldSimulationEnd();
+    }
+
+    private void outputSimulationProgress() {
+        progressOutput.outputSimulationProgress(simulationMap);
     }
 }

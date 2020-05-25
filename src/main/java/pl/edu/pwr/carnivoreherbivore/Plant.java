@@ -27,7 +27,7 @@ public class Plant extends Pawn {
 
     @Override
     public String toString() {
-        return "Plant [" + x + " , " + y + "], Nutrition: " + nutritionalValue;
+        return "[Plant] Nutrition: " + nutritionalValue;
     }
 
     @Override

@@ -27,6 +27,12 @@ public class Vector2d {
         return new Vector2d(x / magnitude, y / magnitude);
     }
 
+    public void normalise() {
+        float magnitude = getLength();
+        x /= magnitude;
+        y /= magnitude;
+    }
+
     public float getAngle() {
         return (float) Math.atan2(y, x);
     }
@@ -46,6 +52,11 @@ public class Vector2d {
 
     public Vector2d getMultiplied(float multiplier) {
         return new Vector2d(x * multiplier, y * multiplier);
+    }
+
+    public void multiplyBy(float multiplier) {
+        x *= multiplier;
+        y *= multiplier;
     }
 
     @Override

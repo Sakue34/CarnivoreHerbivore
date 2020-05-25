@@ -1,9 +1,11 @@
 package pl.edu.pwr.carnivoreherbivore;
 
 public class SimulationCreator {
-    public Simulation Create(SimulationParameters simulationParameters) {
+    public Simulation create(SimulationParameters simulationParameters) {
         MapCreator mapCreator = new MapCreator();
-        SimulationMap simulationMap = mapCreator.Create(simulationParameters);
-        return new Simulation(simulationParameters, simulationMap);
+        SimulationMap simulationMap = mapCreator.create(simulationParameters);
+
+        //Temporal output progress logger
+        return new Simulation(simulationParameters, simulationMap, new TerminalProgressLogger(simulationParameters));
     }
 }

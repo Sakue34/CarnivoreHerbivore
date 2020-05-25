@@ -4,13 +4,26 @@ import pl.edu.pwr.Vector2d;
 
 public abstract class Animal extends Pawn {
     protected float speed;
-    protected float energy;
-    protected float stamina;
-    protected Vector2d velocity;
+    protected float energyConsumptionPerSecond;
     protected float timeToNextWanderingTargetUpdate = 5.0F;
 
     public float getEnergy() {
         return energy;
+    }
+
+    @Override
+    public void consumeEnergy(float elapsedTime) {
+        energy -= energyConsumptionPerSecond * elapsedTime;
+    }
+
+    @Override
+    public boolean isOutOfEnergy() {
+        return energy < 0.0F;
+    }
+
+    @Override
+    public final void addEnergy(float energy) {
+        this.energy += energy;
     }
 
     @Override

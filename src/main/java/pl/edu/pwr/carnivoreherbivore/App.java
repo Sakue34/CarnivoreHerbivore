@@ -39,7 +39,7 @@ public class App {
         ConfigProvider configProvider = new DefaultParametersProvider();
         SimulationParameters simulationParameters = configProvider.get();
         SimulationCreator simulationCreator = new SimulationCreator();
-        Simulation simulation = simulationCreator.Create(simulationParameters);
+        Simulation simulation = simulationCreator.create(simulationParameters);
         simulation.startSimulation();
     }
 

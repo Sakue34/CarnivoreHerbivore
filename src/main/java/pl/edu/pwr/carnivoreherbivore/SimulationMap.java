@@ -7,12 +7,12 @@ import java.util.Map;
 
 public class SimulationMap {
     private final List<Pawn> pawns;
-    public List<Pawn> GetPawns() {
+    public List<Pawn> getPawns() {
         return pawns;
     }
 
     private final Map<Pawn, Position> pawnsPosition;
-    public Map<Pawn, Position> GetPawnsPositions() {
+    public Map<Pawn, Position> getPawnsPositions() {
         return pawnsPosition;
     }
 
@@ -21,12 +21,12 @@ public class SimulationMap {
         pawnsPosition = new HashMap<Pawn, Position>();
     }
 
-    public void AddPawn(Pawn pawn, Position position) {
+    public void addPawn(Pawn pawn, Position position) {
         pawns.add(pawn);
         pawnsPosition.put(pawn, position);
     }
 
-    public void RemovePawn(Pawn pawn) {
+    public void removePawn(Pawn pawn) {
         pawnsPosition.remove(pawn);
         pawns.remove(pawn);
     }

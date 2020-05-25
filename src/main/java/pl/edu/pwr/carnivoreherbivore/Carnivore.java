@@ -41,7 +41,7 @@ public class Carnivore extends Animal {
 
     @Override
     public String toString() {
-        return "Carnivore [" + x + " , " + y + "], Energy: " + energy;
+        return "[Carnivore] Energy: " + energy;
     }
 
     @Override
