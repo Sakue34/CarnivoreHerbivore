@@ -2,6 +2,7 @@ package pl.edu.pwr.carnivoreherbivore;
 
 import pl.edu.pwr.Vector2d;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,13 +25,16 @@ public final class SimulationLogic {
         return (float) Math.sqrt(distanceX * distanceX + distanceY * distanceY);
     }
 
-    private void setPawnVelocityToApproachPosition(Pawn pawn, Position pawnPosition, Position destination, float speed) {
-        float newVelocityX = destination.x - pawnPosition.x;
-        float newVelocityY = destination.y - pawnPosition.y;
-        Vector2d newHerbivoreVelocity = new Vector2d(newVelocityX, newVelocityY);
-        newHerbivoreVelocity.normalise();
-        newHerbivoreVelocity.multiplyBy(speed);
-        pawn.setVelocity(newHerbivoreVelocity);
+    private void setPawnVelocityToApproachPosition(Pawn pawn, Position pawnPosition, Position destination) {
+        float randomVelocityX = destination.x - pawnPosition.x;
+        float randomVelocityY = destination.y - pawnPosition.y;
+        Vector2d randomVelocity = new Vector2d(randomVelocityX, randomVelocityY);
+        float angle = randomVelocity.getAngle();
+
+        Vector2d pawnVelocity = pawn.getVelocity();
+        pawnVelocity.rotateTo(angle);
+
+        pawn.setVelocity(pawnVelocity);
     }
 
     private Pawn getNearestCarnivore(Pawn pawn) {
@@ -98,7 +102,7 @@ public final class SimulationLogic {
         boolean shouldChangeDirection = random <= simulationParameters.chanceToSetNewRandomCarnivoreWanderDirection;
         if (shouldChangeDirection) {
             Position randomPosition = Position.getRandomPosition(simulationParameters.mapWidth, simulationParameters.mapHeight);
-            setPawnVelocityToApproachPosition(pawn, pawnsPositions.get(pawn), randomPosition, pawn.getVelocity().getLength());
+            setPawnVelocityToApproachPosition(pawn, pawnsPositions.get(pawn), randomPosition);
         }
     }
 
@@ -113,7 +117,7 @@ public final class SimulationLogic {
                 Position closestCarnivorePosition = pawnsPositions.get(closestCarnivore);
 
                 //Arguments 2nd and 3rd inverted to make herbivore run away from threat
-                setPawnVelocityToApproachPosition(herbivore, closestCarnivorePosition, herbivorePosition, simulationParameters.herbivoreSpeed);
+                setPawnVelocityToApproachPosition(herbivore, closestCarnivorePosition, herbivorePosition);
                 return;
             }
         }
@@ -123,7 +127,7 @@ public final class SimulationLogic {
             boolean doesHerbivoreSeeClosestPlant = isWithinSightRange(herbivore, closestPlant, herbivoreSightRange);
             if (doesHerbivoreSeeClosestPlant) {
                 Position closestPlantPosition = pawnsPositions.get(closestPlant);
-                setPawnVelocityToApproachPosition(herbivore, herbivorePosition, closestPlantPosition, simulationParameters.herbivoreSpeed);
+                setPawnVelocityToApproachPosition(herbivore, herbivorePosition, closestPlantPosition);
             }
         }
         setRandomlyNewRandomWanderDirection(herbivore);
@@ -139,7 +143,7 @@ public final class SimulationLogic {
             if (doesCarnivoreSeeClosestHerbivore) {
                 Position closestHerbivorePosition = pawnsPositions.get(closestHerbivore);
 
-                setPawnVelocityToApproachPosition(carnivore, carnivorePosition, closestHerbivorePosition, simulationParameters.carnivoreSpeed);
+                setPawnVelocityToApproachPosition(carnivore, carnivorePosition, closestHerbivorePosition);
                 return;
             }
         }
@@ -174,9 +178,11 @@ public final class SimulationLogic {
     }
 
     public void checkPawnsForStarvation() {
+        ArrayList<Pawn> pawnsToBeDeleted = new ArrayList<>();
         for (Pawn pawn : pawns) {
             if (pawn.isOutOfEnergy()) {
-                simulationMap.removePawn(pawn);
+                //simulationMap.removePawn(pawn);
+                pawn.setToBeDestroyed();
             }
         }
     }
@@ -199,13 +205,13 @@ public final class SimulationLogic {
         if (first instanceof Herbivore) {
             if (second instanceof Plant) {
                 first.addEnergy(second.energy);
-                simulationMap.removePawn(second);
+                second.setToBeDestroyed();
             }
         }
         else if (first instanceof Carnivore) {
             if (second instanceof Herbivore) {
                 first.addEnergy(second.energy + simulationParameters.baseHerbivoreNutritionalValue);
-                simulationMap.removePawn(second);
+                second.setToBeDestroyed();
             }
         }
     }
@@ -223,6 +229,16 @@ public final class SimulationLogic {
                     collide(firstPawn, secondPawn);
             }
         }
+    }
+
+    public void destroyEatenOrStarvedPawns() {
+        for (int i = 0; i < simulationMap.getPawns().size(); i++) {
+            Pawn pawn = simulationMap.getPawns().get(i);
+            if (pawn.isToBeDestroyed()) {
+                simulationMap.removePawn(pawn);
+            }
+        }
+
     }
 
     public boolean shouldSimulationEnd() {

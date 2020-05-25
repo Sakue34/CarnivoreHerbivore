@@ -10,7 +10,7 @@ public class TerminalProgressLogger implements ProgressOutput {
         Map<Pawn, Position> pawnsPositions = simulationMap.getPawnsPositions();
         for (int i = 0; i < pawns.size(); i++) {
             String nameAndEnergyString = pawns.get(i).toString();
-            String positionString = pawnsPositions.toString();
+            String positionString = pawnsPositions.get(pawns.get(i)).toString();
             String finalOutputString = (i+1) + ". " + nameAndEnergyString + ", " + positionString;
             System.out.println(finalOutputString);
         }

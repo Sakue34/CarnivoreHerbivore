@@ -14,13 +14,16 @@ public class SimulationParameters {
     public float carnivoreStartingEnergy;
     public float herbivoreEnergyConsumptionPerSecond;
     public float carnivoreEnergyConsumptionPerSecond;
-    public float plantRadius;
-    public float herbivoreRadius;
-    public float carnivoreRadius;
+    public int plantRadius;
+    public int herbivoreRadius;
+    public int carnivoreRadius;
     public float herbivoreSightRange;
     public float carnivoreSightRange;
     public float baseHerbivoreNutritionalValue;
     public int numberOfPawnsToEndSimulation;
     public float chanceToSetNewRandomHerbivoreWanderDirection;
     public float chanceToSetNewRandomCarnivoreWanderDirection;
+    public String colourStringOfPlant;
+    public String colourStringOfHerbivore;
+    public String colourStringOfCarnivore;
 }

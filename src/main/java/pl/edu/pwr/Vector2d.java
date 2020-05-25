@@ -13,11 +13,6 @@ public class Vector2d {
         this.y = y;
     }
 
-    public Vector2d(Vector2d vec) {
-        x = vec.x;
-        y = vec.y;
-    }
-
     public float getLength() {
         return (float) Math.sqrt(x*x + y*y);
     }
@@ -25,12 +20,6 @@ public class Vector2d {
     public Vector2d getNormalised() {
         float magnitude = getLength();
         return new Vector2d(x / magnitude, y / magnitude);
-    }
-
-    public void normalise() {
-        float magnitude = getLength();
-        x /= magnitude;
-        y /= magnitude;
     }
 
     public float getAngle() {
@@ -75,4 +64,17 @@ public class Vector2d {
         }
         return false;
     }
+
+    public static Vector2d getRandomVector2dWithGivenLength(float length) {
+        Vector2d vector2d = new Vector2d(length, 0);
+
+        float randomX = (float) Math.random();
+        float randomY = (float) Math.random();
+        Vector2d randomVector2d = new Vector2d(randomX, randomY);
+        float angle = randomVector2d.getAngle();
+
+        vector2d.rotateTo(angle);
+        return vector2d;
+    }
+
 }

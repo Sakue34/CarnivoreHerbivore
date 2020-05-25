@@ -1,7 +1,6 @@
 package pl.edu.pwr.gui;
 
 import pl.edu.pwr.carnivoreherbivore.Pawn;
-import pl.edu.pwr.carnivoreherbivore.PawnManager;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

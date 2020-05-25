@@ -27,6 +27,9 @@ public class DefaultParametersProvider implements ConfigProvider{
         sP.numberOfPawnsToEndSimulation = 20;
         sP.chanceToSetNewRandomHerbivoreWanderDirection = 0.001F;
         sP.chanceToSetNewRandomCarnivoreWanderDirection = 0.001F;
+        sP.colourStringOfPlant = "0x11EE22";
+        sP.colourStringOfHerbivore = "0x77BA66";
+        sP.colourStringOfCarnivore = "0xFF1133";
         return sP;
     }
 }

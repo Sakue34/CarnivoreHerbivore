@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ParametersAsker {
-
+/*
     public static void enterParameters() {
 
         Scanner scan = new Scanner(System.in);
@@ -172,5 +172,5 @@ public class ParametersAsker {
     }
 
 
-
+*/
 }

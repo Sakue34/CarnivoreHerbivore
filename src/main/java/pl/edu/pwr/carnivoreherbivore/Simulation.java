@@ -11,7 +11,8 @@ public final class Simulation {
         this.progressOutput = progressOutput;
     }
 
-    public void startSimulation() {
+    public void startSimulation()  {
+        //GUIMain guiMain = new GUIMain(pawnListCopy);
         long time1 = System.nanoTime();
         long time2;
 
@@ -25,6 +26,13 @@ public final class Simulation {
             boolean simulationShouldEnd = updateSimulationLogic(elapsedTime);
             if (simulationShouldEnd)
                 shouldSimulationRun = false;
+            try {
+                Thread.sleep(100);
+            }
+            catch (Exception exception)
+            {
+
+            }
             outputSimulationProgress();
         }
     }
@@ -38,6 +46,7 @@ public final class Simulation {
         simulationLogic.checkPawnsForStarvation();
         simulationLogic.boundPawnsWithinMap();
         simulationLogic.checkPawnsForCollision();
+        simulationLogic.destroyEatenOrStarvedPawns();
         return simulationLogic.shouldSimulationEnd();
     }
 
