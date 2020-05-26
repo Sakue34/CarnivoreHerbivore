@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public final class TerminalProgressLogger implements ProgressOutput {
+    private final SimulationMap simulationMap;
     private final float timeBetweenOutput;
     private float timeSinceSimulationStarted = 0.0F;
     private float timeToNextOutput = 0.0F;
@@ -35,7 +36,7 @@ public final class TerminalProgressLogger implements ProgressOutput {
     }
 
     @Override
-    public void outputSimulationProgress(SimulationMap simulationMap, float elapsedTime) {
+    public void outputSimulationProgress(float elapsedTime) {
         timeSinceSimulationStarted += elapsedTime;
         if (!isItTimeToOutput(elapsedTime))
             return;
@@ -44,8 +45,9 @@ public final class TerminalProgressLogger implements ProgressOutput {
         properOutput(simulationMap, elapsedTime);
     }
 
-    public TerminalProgressLogger(SimulationParameters simulationParameters) {
+    public TerminalProgressLogger(SimulationParameters simulationParameters, SimulationMap simulationMap) {
         timeBetweenOutput = simulationParameters.timeBetweenProgressOutputInTerminal;
+        this.simulationMap = simulationMap;
         System.out.println("carnivore-herbivore - Progress output: terminal");
     }
 

@@ -11,9 +11,9 @@ public class SimulationCreator {
 
         ProgressOutput progressOutput;
         if (simulationParameters.useGUI)
-            progressOutput = new GUIProgressOutput(simulationParameters);
+            progressOutput = new GUIProgressOutput(simulationParameters, simulationMap);
         else
-            progressOutput = new TerminalProgressLogger(simulationParameters);
+            progressOutput = new TerminalProgressLogger(simulationParameters, simulationMap);
 
         return new Simulation(simulationParameters, simulationMap, progressOutput);
     }

@@ -42,4 +42,8 @@ public abstract class Pawn {
     public boolean isOutOfEnergy() {
         return false;
     }
+
+    public String getColourString() {
+        return colourString;
+    }
 }

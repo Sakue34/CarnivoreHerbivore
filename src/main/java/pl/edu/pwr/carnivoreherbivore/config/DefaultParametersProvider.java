@@ -23,16 +23,16 @@ public final class DefaultParametersProvider implements ConfigProvider {
         sP.plantRadius = 3;
         sP.herbivoreRadius = 5;
         sP.carnivoreRadius = 8;
-        sP.herbivoreSightRange = 200;
-        sP.carnivoreSightRange = 200;
+        sP.herbivoreSightRange = 400;
+        sP.carnivoreSightRange = 400;
         sP.baseHerbivoreNutritionalValue = 0;
-        sP.numberOfPawnsToEndSimulation = 20;
-        sP.chanceToSetNewRandomHerbivoreWanderDirection = 0.001F;
-        sP.chanceToSetNewRandomCarnivoreWanderDirection = 0.001F;
+        sP.numberOfPawnsToEndSimulation = 0;
+        sP.chanceToSetNewRandomHerbivoreWanderDirection = 0.00001F;
+        sP.chanceToSetNewRandomCarnivoreWanderDirection = 0.00001F;
         sP.colourStringOfPlant = "0x11EE22";
         sP.colourStringOfHerbivore = "0x77BA66";
         sP.colourStringOfCarnivore = "0xFF1133";
-        sP.useGUI = false;
+        sP.useGUI = true;
         sP.timeBetweenProgressOutputInTerminal = 1.0F;
         return sP;
     }

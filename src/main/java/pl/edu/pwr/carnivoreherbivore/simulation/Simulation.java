@@ -28,7 +28,7 @@ public final class Simulation {
             boolean simulationShouldEnd = updateSimulationLogic(elapsedTime);
             if (simulationShouldEnd)
                 shouldSimulationRun = false;
-            outputSimulationProgress(simulationMap, elapsedTime);
+            outputSimulationProgress(elapsedTime);
         }
     }
 
@@ -46,7 +46,7 @@ public final class Simulation {
         return simulationLogic.shouldSimulationEnd();
     }
 
-    private void outputSimulationProgress(SimulationMap simulationMap, float elapsedTime) {
-        progressOutput.outputSimulationProgress(simulationMap, elapsedTime);
+    private void outputSimulationProgress(float elapsedTime) {
+        progressOutput.outputSimulationProgress(elapsedTime);
     }
 }
