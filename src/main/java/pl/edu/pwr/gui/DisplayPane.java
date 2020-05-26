@@ -12,7 +12,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Map;
 import java.util.List;
 
-public class DisplayPane extends JPanel {
+public final class DisplayPane extends JPanel {
     private final List<Pawn> pawns;
     private final Map<Pawn, Position> pawnsPosition;
     private final int mapWidth;
@@ -45,7 +45,7 @@ public class DisplayPane extends JPanel {
             try {
                 Position pawnPosition = pawnsPosition.get(pawn);
                 g.setColor(Color.decode(pawn.getColourString()));
-                g.fillOval((int) pawnPosition.x + pawn.getRadius(), (int) pawnPosition.y + pawn.getRadius(), pawn.getRadius() * 2, pawn.getRadius() * 2);
+                g.fillOval((int) pawnPosition.x - pawn.getRadius(), (int) pawnPosition.y - pawn.getRadius(), pawn.getRadius() * 2, pawn.getRadius() * 2);
             }
             catch (ConcurrentModificationException ex) {
                 return;
