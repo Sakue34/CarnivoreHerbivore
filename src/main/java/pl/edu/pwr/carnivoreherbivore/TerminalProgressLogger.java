@@ -17,7 +17,7 @@ public final class TerminalProgressLogger implements ProgressOutput {
     }
 
     TerminalProgressLogger(SimulationParameters simulationParameters) {
-        System.out.println("carnivore herbivore - Progress output: terminal");
+        System.out.println("carnivore-herbivore - Progress output: terminal");
     }
 
 }

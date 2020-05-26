@@ -25,7 +25,7 @@ public class Vector2d {
     public float getAngle() {
         return (float) Math.atan2(y, x);
     }
-    
+
     public void rotateTo(float angle) {
         set(getCartesian(getLength(), angle));
     }
