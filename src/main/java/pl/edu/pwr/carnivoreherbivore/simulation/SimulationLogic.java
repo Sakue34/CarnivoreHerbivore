@@ -1,12 +1,8 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.simulation;
 
 import pl.edu.pwr.carnivoreherbivore.map.SimulationMap;
-import pl.edu.pwr.carnivoreherbivore.pawn.Carnivore;
-import pl.edu.pwr.carnivoreherbivore.pawn.Herbivore;
-import pl.edu.pwr.carnivoreherbivore.pawn.Pawn;
-import pl.edu.pwr.carnivoreherbivore.pawn.Plant;
-import pl.edu.pwr.carnivoreherbivore.utility.Position;
-import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
+import pl.edu.pwr.carnivoreherbivore.pawn.*;
+import pl.edu.pwr.carnivoreherbivore.utility.*;
 
 import java.util.ArrayList;
 import java.util.List;

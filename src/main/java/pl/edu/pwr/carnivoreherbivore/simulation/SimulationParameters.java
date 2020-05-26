@@ -1,4 +1,4 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.simulation;
 
 public final class SimulationParameters {
     public int mapWidth;
@@ -26,4 +26,6 @@ public final class SimulationParameters {
     public String colourStringOfPlant;
     public String colourStringOfHerbivore;
     public String colourStringOfCarnivore;
+    public boolean useGUI;
+    public float timeBetweenProgressOutputInTerminal;
 }

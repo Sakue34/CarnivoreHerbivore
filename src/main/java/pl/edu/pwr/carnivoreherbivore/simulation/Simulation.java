@@ -1,8 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore.simulation;
 
-import pl.edu.pwr.carnivoreherbivore.SimulationLogic;
 import pl.edu.pwr.carnivoreherbivore.map.SimulationMap;
-import pl.edu.pwr.carnivoreherbivore.SimulationParameters;
 import pl.edu.pwr.carnivoreherbivore.output.ProgressOutput;
 
 public final class Simulation {
@@ -17,7 +15,6 @@ public final class Simulation {
     }
 
     public void startSimulation()  {
-        //GUIMain guiMain = new GUIMain(pawnListCopy);
         long time1 = System.nanoTime();
         long time2;
 
@@ -31,14 +28,7 @@ public final class Simulation {
             boolean simulationShouldEnd = updateSimulationLogic(elapsedTime);
             if (simulationShouldEnd)
                 shouldSimulationRun = false;
-            try {
-                Thread.sleep(100);
-            }
-            catch (Exception exception)
-            {
-
-            }
-            outputSimulationProgress();
+            outputSimulationProgress(simulationMap, elapsedTime);
         }
     }
 
@@ -52,10 +42,11 @@ public final class Simulation {
         simulationLogic.boundPawnsWithinMap();
         simulationLogic.checkPawnsForCollision();
         simulationLogic.destroyEatenOrStarvedPawns();
+
         return simulationLogic.shouldSimulationEnd();
     }
 
-    private void outputSimulationProgress() {
-        progressOutput.outputSimulationProgress(simulationMap);
+    private void outputSimulationProgress(SimulationMap simulationMap, float elapsedTime) {
+        progressOutput.outputSimulationProgress(simulationMap, elapsedTime);
     }
 }
