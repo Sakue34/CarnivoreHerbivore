@@ -1,4 +1,10 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.map;
+
+import pl.edu.pwr.carnivoreherbivore.utility.Position;
+import pl.edu.pwr.carnivoreherbivore.SimulationParameters;
+import pl.edu.pwr.carnivoreherbivore.pawn.Carnivore;
+import pl.edu.pwr.carnivoreherbivore.pawn.Herbivore;
+import pl.edu.pwr.carnivoreherbivore.pawn.Plant;
 
 public final class MapCreator {
 

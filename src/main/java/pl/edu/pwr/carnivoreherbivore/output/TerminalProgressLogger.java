@@ -1,4 +1,9 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.output;
+
+import pl.edu.pwr.carnivoreherbivore.utility.Position;
+import pl.edu.pwr.carnivoreherbivore.map.SimulationMap;
+import pl.edu.pwr.carnivoreherbivore.SimulationParameters;
+import pl.edu.pwr.carnivoreherbivore.pawn.Pawn;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +21,7 @@ public final class TerminalProgressLogger implements ProgressOutput {
         }
     }
 
-    TerminalProgressLogger(SimulationParameters simulationParameters) {
+    public TerminalProgressLogger(SimulationParameters simulationParameters) {
         System.out.println("carnivore-herbivore - Progress output: terminal");
     }
 

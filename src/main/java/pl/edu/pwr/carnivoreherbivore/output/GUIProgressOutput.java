@@ -1,4 +1,7 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.output;
+
+import pl.edu.pwr.carnivoreherbivore.map.SimulationMap;
+import pl.edu.pwr.carnivoreherbivore.SimulationParameters;
 
 public final class GUIProgressOutput implements ProgressOutput {
     @Override

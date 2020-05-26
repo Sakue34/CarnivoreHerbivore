@@ -1,4 +1,7 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.map;
+
+import pl.edu.pwr.carnivoreherbivore.utility.Position;
+import pl.edu.pwr.carnivoreherbivore.pawn.Pawn;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,8 +20,8 @@ public final class SimulationMap {
     }
 
     public SimulationMap() {
-        pawns = new ArrayList<Pawn>();
-        pawnsPosition = new HashMap<Pawn, Position>();
+        pawns = new ArrayList<>();
+        pawnsPosition = new HashMap<>();
     }
 
     public void addPawn(Pawn pawn, Position position) {

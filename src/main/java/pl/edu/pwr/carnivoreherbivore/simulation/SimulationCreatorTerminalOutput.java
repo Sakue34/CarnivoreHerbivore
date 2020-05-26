@@ -1,4 +1,9 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.simulation;
+
+import pl.edu.pwr.carnivoreherbivore.map.MapCreator;
+import pl.edu.pwr.carnivoreherbivore.map.SimulationMap;
+import pl.edu.pwr.carnivoreherbivore.SimulationParameters;
+import pl.edu.pwr.carnivoreherbivore.output.TerminalProgressLogger;
 
 public final class SimulationCreatorTerminalOutput implements SimulationCreator {
     @Override

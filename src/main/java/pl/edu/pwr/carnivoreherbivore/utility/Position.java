@@ -1,4 +1,4 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.utility;
 
 public class Position {
     public float x;

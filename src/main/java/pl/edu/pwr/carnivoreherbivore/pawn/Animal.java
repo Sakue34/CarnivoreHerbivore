@@ -1,4 +1,4 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.pawn;
 
 public abstract class Animal extends Pawn {
     protected float energyConsumptionPerSecond;

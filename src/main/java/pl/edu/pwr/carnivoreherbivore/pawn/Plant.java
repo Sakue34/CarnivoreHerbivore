@@ -1,6 +1,7 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.pawn;
 
-import pl.edu.pwr.Vector2d;
+import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
+import pl.edu.pwr.carnivoreherbivore.SimulationParameters;
 
 public final class Plant extends Pawn {
     public Plant(SimulationParameters simulationParameters) {

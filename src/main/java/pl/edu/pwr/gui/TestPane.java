@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import pl.edu.pwr.carnivoreherbivore.Pawn;
+import pl.edu.pwr.carnivoreherbivore.pawn.Pawn;
 
 public class TestPane extends JPanel {
 

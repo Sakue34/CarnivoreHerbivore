@@ -1,4 +1,4 @@
-package pl.edu.pwr;
+package pl.edu.pwr.carnivoreherbivore.utility;
 
 import java.lang.Math;
 

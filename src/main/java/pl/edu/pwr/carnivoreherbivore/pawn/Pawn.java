@@ -1,6 +1,6 @@
-package pl.edu.pwr.carnivoreherbivore;
+package pl.edu.pwr.carnivoreherbivore.pawn;
 
-import pl.edu.pwr.Vector2d;
+import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
 
 public abstract class Pawn {
     protected float energy;
@@ -34,6 +34,10 @@ public abstract class Pawn {
     public void addEnergy(float energy) { }
 
     public void consumeEnergy(float elapsedTime) { }
+
+    public float getEnergy() {
+        return energy;
+    }
 
     public boolean isOutOfEnergy() {
         return false;

@@ -3,7 +3,7 @@ package pl.edu.pwr.gui;
 import java.awt.*;
 import java.util.ArrayList;
 
-import pl.edu.pwr.carnivoreherbivore.Pawn;
+import pl.edu.pwr.carnivoreherbivore.pawn.Pawn;
 
 public class PawnDrawManager {
     public static void drawEveryEntity(ArrayList<Pawn> pawnList, Graphics g) {

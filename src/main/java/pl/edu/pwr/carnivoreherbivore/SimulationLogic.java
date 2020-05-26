@@ -1,6 +1,12 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-import pl.edu.pwr.Vector2d;
+import pl.edu.pwr.carnivoreherbivore.map.SimulationMap;
+import pl.edu.pwr.carnivoreherbivore.pawn.Carnivore;
+import pl.edu.pwr.carnivoreherbivore.pawn.Herbivore;
+import pl.edu.pwr.carnivoreherbivore.pawn.Pawn;
+import pl.edu.pwr.carnivoreherbivore.pawn.Plant;
+import pl.edu.pwr.carnivoreherbivore.utility.Position;
+import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -204,13 +210,13 @@ public final class SimulationLogic {
     private void collide(Pawn first, Pawn second) {
         if (first instanceof Herbivore) {
             if (second instanceof Plant) {
-                first.addEnergy(second.energy);
+                first.addEnergy(second.getEnergy());
                 second.setToBeDestroyed();
             }
         }
         else if (first instanceof Carnivore) {
             if (second instanceof Herbivore) {
-                first.addEnergy(second.energy + simulationParameters.baseHerbivoreNutritionalValue);
+                first.addEnergy(second.getEnergy() + simulationParameters.baseHerbivoreNutritionalValue);
                 second.setToBeDestroyed();
             }
         }
