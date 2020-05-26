@@ -3,10 +3,7 @@ package pl.edu.pwr.carnivoreherbivore.map;
 import pl.edu.pwr.carnivoreherbivore.utility.Position;
 import pl.edu.pwr.carnivoreherbivore.pawn.Pawn;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public final class SimulationMap {
     private final List<Pawn> pawns;
@@ -20,8 +17,8 @@ public final class SimulationMap {
     }
 
     public SimulationMap() {
-        pawns = new ArrayList<>();
-        pawnsPosition = new HashMap<>();
+        pawns = Collections.synchronizedList(new ArrayList<>());
+        pawnsPosition = Collections.synchronizedMap(new HashMap<>());
     }
 
     public void addPawn(Pawn pawn, Position position) {

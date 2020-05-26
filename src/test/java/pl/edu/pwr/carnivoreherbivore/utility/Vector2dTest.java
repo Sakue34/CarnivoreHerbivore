@@ -1,7 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore.utility;
 
 import org.junit.Test;
-import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
 
 import java.lang.Math;
 
