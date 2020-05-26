@@ -42,6 +42,4 @@ public abstract class Pawn {
     public boolean isOutOfEnergy() {
         return false;
     }
-
-    //public abstract void draw(Graphics g);
 }

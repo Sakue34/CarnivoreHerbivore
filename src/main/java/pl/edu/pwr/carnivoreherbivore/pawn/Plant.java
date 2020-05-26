@@ -16,11 +16,4 @@ public final class Plant extends Pawn {
     public String toString() {
         return "[Plant] Nutrition: " + energy;
     }
-
-    /*@Override
-    public void draw(Graphics g) {
-        g.setColor(color);
-        g.fillOval((int)x - radius , (int)y - radius, radius * 2, radius * 2);
-    }*/
-
 }
