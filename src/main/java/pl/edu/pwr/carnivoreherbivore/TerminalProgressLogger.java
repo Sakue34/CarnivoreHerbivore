@@ -3,7 +3,7 @@ package pl.edu.pwr.carnivoreherbivore;
 import java.util.List;
 import java.util.Map;
 
-public class TerminalProgressLogger implements ProgressOutput {
+public final class TerminalProgressLogger implements ProgressOutput {
     @Override
     public void outputSimulationProgress(SimulationMap simulationMap) {
         List<Pawn> pawns = simulationMap.getPawns();

@@ -1,6 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-public class App {
+public final class App {
 
     public static void main(String[] args) {
         ConfigProvider configProvider = new DefaultParametersProvider();

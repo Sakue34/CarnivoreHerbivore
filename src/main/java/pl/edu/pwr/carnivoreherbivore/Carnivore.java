@@ -2,7 +2,7 @@ package pl.edu.pwr.carnivoreherbivore;
 
 import pl.edu.pwr.Vector2d;
 
-public class Carnivore extends Animal {
+public final class Carnivore extends Animal {
     public Carnivore(SimulationParameters simulationParameters) {
         energy = simulationParameters.carnivoreStartingEnergy;
         radius = simulationParameters.carnivoreRadius;

@@ -1,6 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-public class MapCreator {
+public final class MapCreator {
 
     private void createPlants(SimulationMap simulationMap, SimulationParameters simulationParameters) {
         for (int i = 0; i < simulationParameters.startingNumberOfPlants; i++) {

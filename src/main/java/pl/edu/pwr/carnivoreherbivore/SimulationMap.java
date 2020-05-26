@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SimulationMap {
+public final class SimulationMap {
     private final List<Pawn> pawns;
     public List<Pawn> getPawns() {
         return pawns;

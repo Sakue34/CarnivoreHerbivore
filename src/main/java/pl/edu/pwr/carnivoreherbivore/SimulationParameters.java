@@ -1,6 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore;
 
-public class SimulationParameters {
+public final class SimulationParameters {
     public int mapWidth;
     public int mapHeight;
     public float speedOfSimulationMultiplier;

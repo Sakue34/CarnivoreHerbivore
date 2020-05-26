@@ -1,7 +1,7 @@
 package pl.edu.pwr.carnivoreherbivore;
 
 //Debug class that returns default simulation parameters
-public class DefaultParametersProvider implements ConfigProvider{
+public final class DefaultParametersProvider implements ConfigProvider{
     @Override
     public SimulationParameters get() {
         SimulationParameters sP = new SimulationParameters();
