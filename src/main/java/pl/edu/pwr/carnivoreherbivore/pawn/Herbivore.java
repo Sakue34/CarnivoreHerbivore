@@ -9,6 +9,8 @@ public final class Herbivore extends Animal {
         radius = simulationParameters.herbivoreRadius;
         velocity = Vector2d.getRandomVector2dWithGivenLength(simulationParameters.herbivoreSpeed);
         energyConsumptionPerSecond = simulationParameters.herbivoreEnergyConsumptionPerSecond;
+        wanderUpdateTimer = simulationParameters.timeToSetNewRandomHerbivoreWanderDirection;
+        wanderUpdateTimeMax = wanderUpdateTimer;
 
         colourString = simulationParameters.colourStringOfHerbivore;
     }

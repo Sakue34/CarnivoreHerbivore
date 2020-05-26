@@ -39,6 +39,12 @@ public final class SimulationLogic {
         pawn.setVelocity(pawnVelocity);
     }
 
+    public void updatePawnsWanderTimer(float elapsedTime) {
+        for (Pawn pawn : pawns) {
+            pawn.wander(elapsedTime);
+        }
+    }
+
     private Pawn getNearestCarnivore(Pawn pawn) {
         Position pawnPosition = pawnsPositions.get(pawn);
         Pawn closestCarnivore = null;
@@ -99,15 +105,6 @@ public final class SimulationLogic {
         return getDistanceBetween(firstPosition, secondPosition) <= sightRange;
     }
 
-    private void setRandomlyNewRandomWanderDirection(Pawn pawn) {
-        float random = (float)Math.random();
-        boolean shouldChangeDirection = random <= simulationParameters.chanceToSetNewRandomCarnivoreWanderDirection;
-        if (shouldChangeDirection) {
-            Position randomPosition = Position.getRandomPosition(simulationParameters.mapWidth, simulationParameters.mapHeight);
-            setPawnVelocityToApproachPosition(pawn, pawnsPositions.get(pawn), randomPosition);
-        }
-    }
-
     private void updateHerbivoreVelocity(Pawn herbivore) {
         Position herbivorePosition = pawnsPositions.get(herbivore);
         float herbivoreSightRange = simulationParameters.herbivoreSightRange;
@@ -132,7 +129,6 @@ public final class SimulationLogic {
                 setPawnVelocityToApproachPosition(herbivore, herbivorePosition, closestPlantPosition);
             }
         }
-        setRandomlyNewRandomWanderDirection(herbivore);
     }
 
     private void updateCarnivoreVelocity(Pawn carnivore) {
@@ -146,10 +142,8 @@ public final class SimulationLogic {
                 Position closestHerbivorePosition = pawnsPositions.get(closestHerbivore);
 
                 setPawnVelocityToApproachPosition(carnivore, carnivorePosition, closestHerbivorePosition);
-                return;
             }
         }
-        setRandomlyNewRandomWanderDirection(carnivore);
     }
 
     public void updatePawnsVelocity() {

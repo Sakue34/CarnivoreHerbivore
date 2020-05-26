@@ -21,8 +21,8 @@ public final class SimulationParameters {
     public float carnivoreSightRange;
     public float baseHerbivoreNutritionalValue;
     public int numberOfPawnsToEndSimulation;
-    public float chanceToSetNewRandomHerbivoreWanderDirection;
-    public float chanceToSetNewRandomCarnivoreWanderDirection;
+    public float timeToSetNewRandomHerbivoreWanderDirection;
+    public float timeToSetNewRandomCarnivoreWanderDirection;
     public String colourStringOfPlant;
     public String colourStringOfHerbivore;
     public String colourStringOfCarnivore;

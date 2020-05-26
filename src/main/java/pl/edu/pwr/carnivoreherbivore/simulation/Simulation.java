@@ -35,6 +35,7 @@ public final class Simulation {
     private boolean updateSimulationLogic(float elapsedTime) {
         SimulationLogic simulationLogic = new SimulationLogic(simulationParameters, simulationMap);
 
+        simulationLogic.updatePawnsWanderTimer(elapsedTime);
         simulationLogic.updatePawnsVelocity();
         simulationLogic.movePawns(elapsedTime);
         simulationLogic.makePawnsConsumeEnergy(elapsedTime);

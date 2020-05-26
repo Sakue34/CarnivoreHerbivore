@@ -9,6 +9,9 @@ public abstract class Pawn {
 
     protected String colourString;
 
+    protected float wanderUpdateTimer = 0.0F;
+    protected float wanderUpdateTimeMax = 0.0F;
+
     protected boolean toBeDestroyed = false;
 
     public void setToBeDestroyed() {
@@ -46,4 +49,6 @@ public abstract class Pawn {
     public String getColourString() {
         return colourString;
     }
+
+    public void wander(float elapsedTime) { }
 }

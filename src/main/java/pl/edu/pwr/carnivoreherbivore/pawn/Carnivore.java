@@ -9,6 +9,8 @@ public final class Carnivore extends Animal {
         radius = simulationParameters.carnivoreRadius;
         velocity = Vector2d.getRandomVector2dWithGivenLength(simulationParameters.carnivoreSpeed);
         energyConsumptionPerSecond = simulationParameters.carnivoreEnergyConsumptionPerSecond;
+        wanderUpdateTimer = simulationParameters.timeToSetNewRandomCarnivoreWanderDirection;
+        wanderUpdateTimeMax = wanderUpdateTimer;
 
         colourString = simulationParameters.colourStringOfCarnivore;
     }

@@ -1,5 +1,7 @@
 package pl.edu.pwr.carnivoreherbivore.pawn;
 
+import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
+
 public abstract class Animal extends Pawn {
     protected float energyConsumptionPerSecond;
 
@@ -16,5 +18,15 @@ public abstract class Animal extends Pawn {
     @Override
     public final void addEnergy(float energy) {
         this.energy += energy;
+    }
+
+    @Override
+    public void wander(float elapsedTime) {
+        wanderUpdateTimer -= elapsedTime;
+        if (wanderUpdateTimer < 0.0F) {
+            velocity = Vector2d.getRandomVector2dWithGivenLength(velocity.getLength());
+            wanderUpdateTimer = wanderUpdateTimeMax;
+            System.out.println("Wander updated");
+        }
     }
 }
