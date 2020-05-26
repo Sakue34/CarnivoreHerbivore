@@ -13,39 +13,21 @@ public class Vector2d {
         this.y = y;
     }
 
-    public float getLength() {
-        return (float) Math.sqrt(x*x + y*y);
+    private void set(Vector2d v) {
+        this.x = v.x;
+        this.y = v.y;
     }
 
-    public Vector2d getNormalised() {
-        float magnitude = getLength();
-        return new Vector2d(x / magnitude, y / magnitude);
+    public float getLength() {
+        return (float) Math.sqrt(x*x + y*y);
     }
 
     public float getAngle() {
         return (float) Math.atan2(y, x);
     }
-
-    public void set(Vector2d v) {
-        this.x = v.x;
-        this.y = v.y;
-    }
-
-    public static Vector2d getCartesian(float magnitude, float angle) {
-        return new Vector2d((float)(magnitude * Math.cos(angle)), (float)(magnitude * Math.sin(angle)));
-    }
-
+    
     public void rotateTo(float angle) {
         set(getCartesian(getLength(), angle));
-    }
-
-    public Vector2d getMultiplied(float multiplier) {
-        return new Vector2d(x * multiplier, y * multiplier);
-    }
-
-    public void multiplyBy(float multiplier) {
-        x *= multiplier;
-        y *= multiplier;
     }
 
     @Override
@@ -63,6 +45,10 @@ public class Vector2d {
                     && Math.abs(vec.y - y) <= FLOATING_POINT_ERROR_MARGIN;
         }
         return false;
+    }
+
+    public static Vector2d getCartesian(float magnitude, float angle) {
+        return new Vector2d((float)(magnitude * Math.cos(angle)), (float)(magnitude * Math.sin(angle)));
     }
 
     public static Vector2d getRandomVector2dWithGivenLength(float length) {

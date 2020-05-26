@@ -45,15 +45,6 @@ public class Vector2dTest {
     }
 
     @Test
-    public void shouldReturnNormalised() {
-        Vector2d vec = new Vector2d(-2,-2);
-        Vector2d result = vec.getNormalised();
-        System.out.println(result.toString());
-        assertEquals("Normalised vector should be [-sqrt(2)/2 , -sqrt(2)/2]",
-                result, new Vector2d(-0.70710678118F, -0.70710678118F));
-    }
-
-    @Test
     public void shouldReturnRotatedVector() {
         Vector2d vec = new Vector2d(-1,-1);
         vec.rotateTo(0.0F);
