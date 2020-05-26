@@ -13,20 +13,13 @@ public final class TerminalProgressLogger implements ProgressOutput {
     private float timeSinceSimulationStarted = 0.0F;
     private float timeToNextOutput = 0.0F;
 
-    boolean isItTimeToOutput(float elapsedTime) {
+    private boolean isItTimeToOutput(float elapsedTime) {
         timeToNextOutput -= elapsedTime;
         return timeToNextOutput < 0.0F;
     }
 
-    @Override
-    public void outputSimulationProgress(SimulationMap simulationMap, float elapsedTime) {
-        if (!isItTimeToOutput(elapsedTime))
-            return;
-
-        timeToNextOutput = timeBetweenOutput;
-
-        timeSinceSimulationStarted += elapsedTime;
-        System.out.println("");
+    private void properOutput(SimulationMap simulationMap, float elapsedTime) {
+        System.out.println();
         System.out.println("Elapsed time: " + elapsedTime + " second(s)");
         System.out.println("Time since simulation started: " + timeSinceSimulationStarted + " second(s)");
 
@@ -39,6 +32,16 @@ public final class TerminalProgressLogger implements ProgressOutput {
             String finalOutputString = (i+1) + ". " + nameAndEnergyString + ", " + positionString;
             System.out.println(finalOutputString);
         }
+    }
+
+    @Override
+    public void outputSimulationProgress(SimulationMap simulationMap, float elapsedTime) {
+        timeSinceSimulationStarted += elapsedTime;
+        if (!isItTimeToOutput(elapsedTime))
+            return;
+
+        timeToNextOutput = timeBetweenOutput;
+        properOutput(simulationMap, elapsedTime);
     }
 
     public TerminalProgressLogger(SimulationParameters simulationParameters) {
