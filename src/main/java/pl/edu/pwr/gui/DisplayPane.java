@@ -8,9 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ConcurrentModificationException;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 public final class DisplayPane extends JPanel {
     private final List<Pawn> pawns;
@@ -41,13 +40,14 @@ public final class DisplayPane extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for(Pawn pawn : pawns) {
+        for (int i = 0; i < pawns.size(); i++) {
             try {
+                Pawn pawn = pawns.get(i);
                 Position pawnPosition = pawnsPosition.get(pawn);
                 g.setColor(Color.decode(pawn.getColourString()));
                 g.fillOval((int) pawnPosition.x - pawn.getRadius(), (int) pawnPosition.y - pawn.getRadius(), pawn.getRadius() * 2, pawn.getRadius() * 2);
             }
-            catch (ConcurrentModificationException ex) {
+            catch (NullPointerException exception) {
                 return;
             }
         }

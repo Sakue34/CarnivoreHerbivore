@@ -54,8 +54,8 @@ public class Vector2d {
     public static Vector2d getRandomVector2dWithGivenLength(float length) {
         Vector2d vector2d = new Vector2d(length, 0);
 
-        float randomX = (float) Math.random();
-        float randomY = (float) Math.random();
+        float randomX = (float) Math.random() - 0.5F;
+        float randomY = (float) Math.random() - 0.5F;
         Vector2d randomVector2d = new Vector2d(randomX, randomY);
         float angle = randomVector2d.getAngle();
 

@@ -51,7 +51,7 @@ public final class SimulationLogic {
         float closestCarnivoreDistance = Integer.MAX_VALUE;
         for (Pawn secondPawn : pawns) {
             if (!(secondPawn instanceof Carnivore))
-                break;
+                continue;
             Position secondPawnPosition = pawnsPositions.get(secondPawn);
             float newDistance = getDistanceBetween(pawnPosition, secondPawnPosition);
             boolean isCloserThanCurrentClosest = newDistance < closestCarnivoreDistance;
@@ -69,7 +69,7 @@ public final class SimulationLogic {
         float closestHerbivoreDistance = Integer.MAX_VALUE;
         for (Pawn secondPawn : pawns) {
             if (!(secondPawn instanceof Herbivore))
-                break;
+                continue;
             Position secondPawnPosition = pawnsPositions.get(secondPawn);
             float newDistance = getDistanceBetween(pawnPosition, secondPawnPosition);
             boolean isCloserThanCurrentClosest = newDistance < closestHerbivoreDistance;
@@ -87,7 +87,7 @@ public final class SimulationLogic {
         float closestPlantDistance = Integer.MAX_VALUE;
         for (Pawn secondPawn : pawns) {
             if (!(secondPawn instanceof Plant))
-                break;
+                continue;
             Position secondPawnPosition = pawnsPositions.get(secondPawn);
             float newDistance = getDistanceBetween(pawnPosition, secondPawnPosition);
             boolean isCloserThanCurrentClosest = newDistance < closestPlantDistance;
@@ -114,9 +114,8 @@ public final class SimulationLogic {
             boolean doesHerbivoreSeeClosestCarnivore = isWithinSightRange(herbivore, closestCarnivore, herbivoreSightRange);
             if (doesHerbivoreSeeClosestCarnivore) {
                 Position closestCarnivorePosition = pawnsPositions.get(closestCarnivore);
-
-                //Arguments 2nd and 3rd inverted to make herbivore run away from threat
-                setPawnVelocityToApproachPosition(herbivore, closestCarnivorePosition, herbivorePosition);
+                setPawnVelocityToApproachPosition(herbivore, herbivorePosition, closestCarnivorePosition);
+                herbivore.flipVelocity();
                 return;
             }
         }
@@ -140,7 +139,6 @@ public final class SimulationLogic {
             boolean doesCarnivoreSeeClosestHerbivore = isWithinSightRange(carnivore, closestHerbivore, carnivoreSightRange);
             if (doesCarnivoreSeeClosestHerbivore) {
                 Position closestHerbivorePosition = pawnsPositions.get(closestHerbivore);
-
                 setPawnVelocityToApproachPosition(carnivore, carnivorePosition, closestHerbivorePosition);
             }
         }

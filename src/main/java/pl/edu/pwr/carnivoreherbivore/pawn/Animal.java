@@ -26,7 +26,6 @@ public abstract class Animal extends Pawn {
         if (wanderUpdateTimer < 0.0F) {
             velocity = Vector2d.getRandomVector2dWithGivenLength(velocity.getLength());
             wanderUpdateTimer = wanderUpdateTimeMax;
-            System.out.println("Wander updated");
         }
     }
 }

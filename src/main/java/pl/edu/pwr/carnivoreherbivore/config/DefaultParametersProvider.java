@@ -2,7 +2,6 @@ package pl.edu.pwr.carnivoreherbivore.config;
 
 import pl.edu.pwr.carnivoreherbivore.simulation.SimulationParameters;
 
-//Debug class that returns default simulation parameters
 public final class DefaultParametersProvider implements ConfigProvider {
     @Override
     public SimulationParameters get() {
@@ -10,8 +9,8 @@ public final class DefaultParametersProvider implements ConfigProvider {
         sP.mapHeight = 800;
         sP.mapWidth = 1024;
         sP.speedOfSimulationMultiplier = 1.0F;
-        sP.startingNumberOfPlants = 50;
-        sP.startingNumberOfHerbivores = 20;
+        sP.startingNumberOfPlants = 60;
+        sP.startingNumberOfHerbivores = 10;
         sP.startingNumberOfCarnivores = 4;
         sP.herbivoreSpeed = 50;
         sP.carnivoreSpeed = 60;
@@ -21,17 +20,17 @@ public final class DefaultParametersProvider implements ConfigProvider {
         sP.herbivoreEnergyConsumptionPerSecond = 4;
         sP.carnivoreEnergyConsumptionPerSecond = 6;
         sP.plantRadius = 3;
-        sP.herbivoreRadius = 5;
+        sP.herbivoreRadius = 6;
         sP.carnivoreRadius = 8;
-        sP.herbivoreSightRange = 300;
-        sP.carnivoreSightRange = 300;
+        sP.herbivoreSightRange = 200;
+        sP.carnivoreSightRange = 200;
         sP.baseHerbivoreNutritionalValue = 0;
         sP.numberOfPawnsToEndSimulation = 0;
         sP.timeToSetNewRandomHerbivoreWanderDirection = 4.0F;
         sP.timeToSetNewRandomCarnivoreWanderDirection = 4.0F;
-        sP.colourStringOfPlant = "0x11EE22";
-        sP.colourStringOfHerbivore = "0x77BA66";
-        sP.colourStringOfCarnivore = "0xFF1133";
+        sP.colourStringOfPlant = "0x7bf542";
+        sP.colourStringOfHerbivore = "0x5cc432";
+        sP.colourStringOfCarnivore = "0xc70000";
         sP.useGUI = true;
         sP.timeBetweenProgressOutputInTerminal = 1.0F;
         return sP;

@@ -34,6 +34,11 @@ public abstract class Pawn {
         return velocity;
     }
 
+    public void flipVelocity() {
+        velocity.x *= -1;
+        velocity.y *= -1;
+    }
+
     public void addEnergy(float energy) { }
 
     public void consumeEnergy(float elapsedTime) { }
