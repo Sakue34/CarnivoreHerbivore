@@ -20,7 +20,7 @@ public final class TerminalProgressLogger implements ProgressOutput {
 
     private void properOutput(SimulationMap simulationMap, float elapsedTime) {
         System.out.println();
-        System.out.println("Elapsed time: " + elapsedTime + " second(s)");
+        System.out.println("Last main loop iteration execution time: " + elapsedTime + " second(s)");
         System.out.println("Time since simulation started: " + timeSinceSimulationStarted + " second(s)");
 
         List<Pawn> pawns = simulationMap.getPawns();
