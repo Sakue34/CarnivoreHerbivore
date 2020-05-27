@@ -27,7 +27,7 @@ public class SimpleProgressOutput implements ProgressOutput {
         timeToNextOutput = timeBetweenOutput;
 
         System.out.println();
-        System.out.println("Time since simulation started: " + timeSinceSimulationStarted + " second(s)");
+        System.out.println("Time since simulation started: " + timeSinceSimulationStarted + " in-simulation second(s)");
         return true;
     }
 
