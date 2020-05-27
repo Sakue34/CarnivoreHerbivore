@@ -8,7 +8,7 @@ public final class DefaultParametersProvider implements ConfigProvider {
         SimulationParameters sP = new SimulationParameters();
         sP.mapHeight = 800;
         sP.mapWidth = 1024;
-        sP.speedOfSimulationMultiplier = 4.0F;
+        sP.speedOfSimulationMultiplier = 1.0F;
         sP.startingNumberOfPlants = 60;
         sP.startingNumberOfHerbivores = 10;
         sP.startingNumberOfCarnivores = 4;
