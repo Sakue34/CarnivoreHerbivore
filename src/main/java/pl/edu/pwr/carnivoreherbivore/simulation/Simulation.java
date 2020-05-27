@@ -26,9 +26,11 @@ public final class Simulation {
             float elapsedTime = (float)elapsedNanoSeconds / 1.0e9F;
             elapsedTime *= simulationParameters.speedOfSimulationMultiplier;
             boolean simulationShouldEnd = updateSimulationLogic(elapsedTime);
-            if (simulationShouldEnd)
-                shouldSimulationRun = false;
             outputSimulationProgress(elapsedTime);
+            if (simulationShouldEnd) {
+                shouldSimulationRun = false;
+                progressOutput.outputSimulationEnd();
+            }
         }
     }
 

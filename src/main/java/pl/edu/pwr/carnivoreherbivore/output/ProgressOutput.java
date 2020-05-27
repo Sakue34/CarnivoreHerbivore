@@ -1,5 +1,6 @@
 package pl.edu.pwr.carnivoreherbivore.output;
 
 public interface ProgressOutput {
-    void outputSimulationProgress(float elapsedTime);
+    boolean outputSimulationProgress(float elapsedTime);
+    void outputSimulationEnd();
 }

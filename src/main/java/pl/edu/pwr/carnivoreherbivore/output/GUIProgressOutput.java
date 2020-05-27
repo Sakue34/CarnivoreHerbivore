@@ -7,8 +7,7 @@ import pl.edu.pwr.gui.DisplayPane;
 import javax.swing.*;
 import java.awt.*;
 
-public final class GUIProgressOutput implements ProgressOutput {
-    private final SimulationMap simulationMap;
+public final class GUIProgressOutput extends SimpleProgressOutput {
     private final SimulationParameters simulationParameters;
 
     private void GUIMain() {
@@ -32,18 +31,10 @@ public final class GUIProgressOutput implements ProgressOutput {
         });
     }
 
-    @Override
-    public void outputSimulationProgress(float elapsedTime) {
-        //Display progress with GUI
-    }
-
     public GUIProgressOutput(SimulationParameters simulationParameters, SimulationMap simulationMap) {
+        super(simulationParameters, simulationMap);
         System.out.println("carnivore-herbivore - Progress output: Swing GUI");
         this.simulationParameters = simulationParameters;
-        this.simulationMap = simulationMap;
         GUIMain();
     }
-
-
-
 }

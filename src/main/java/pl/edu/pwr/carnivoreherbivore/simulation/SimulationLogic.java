@@ -217,7 +217,8 @@ public final class SimulationLogic {
                     continue;
                 Position firstPosition = pawnsPositions.get(firstPawn);
                 Position secondPosition = pawnsPositions.get(secondPawn);
-                float maxCollisionDistance = firstPawn.getRadius() + secondPawn.getRadius();
+                float collisionRangeMultiplier = simulationParameters.collisionRangeMultiplierOfSumOfRadii;
+                float maxCollisionDistance = (firstPawn.getRadius() + secondPawn.getRadius()) * collisionRangeMultiplier;
                 boolean collisionHappened = getDistanceBetween(firstPosition, secondPosition) <= maxCollisionDistance;
                 if (collisionHappened)
                     collide(firstPawn, secondPawn);
@@ -236,6 +237,17 @@ public final class SimulationLogic {
     }
 
     public boolean shouldSimulationEnd() {
+        for (Pawn pawn : pawns) {
+            if (simulationParameters.endSimulationWhenNoHerbivoresLeft) {
+                if (pawn instanceof Herbivore)
+                    break;
+            }
+            else if (simulationParameters.endSimulationWhenNoCarnivoresLeft) {
+                if (pawn instanceof Carnivore)
+                    break;
+            }
+        }
+
         int pawnsCount = simulationMap.getPawns().size();
         return pawnsCount <= simulationParameters.numberOfPawnsToEndSimulation;
     }

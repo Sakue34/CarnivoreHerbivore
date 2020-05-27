@@ -20,7 +20,6 @@ public final class SimulationParameters {
     public float herbivoreSightRange;
     public float carnivoreSightRange;
     public float baseHerbivoreNutritionalValue;
-    public int numberOfPawnsToEndSimulation;
     public float timeToSetNewRandomHerbivoreWanderDirection;
     public float timeToSetNewRandomCarnivoreWanderDirection;
     public String colourStringOfPlant;
@@ -28,4 +27,8 @@ public final class SimulationParameters {
     public String colourStringOfCarnivore;
     public boolean useGUI;
     public float timeBetweenProgressOutputInTerminal;
+    public int numberOfPawnsToEndSimulation;
+    public boolean endSimulationWhenNoHerbivoresLeft;
+    public boolean endSimulationWhenNoCarnivoresLeft;
+    public float collisionRangeMultiplierOfSumOfRadii;
 }
