@@ -175,7 +175,6 @@ public final class SimulationLogic {
         ArrayList<Pawn> pawnsToBeDeleted = new ArrayList<>();
         for (Pawn pawn : pawns) {
             if (pawn.isOutOfEnergy()) {
-                //simulationMap.removePawn(pawn);
                 pawn.setToBeDestroyed();
             }
         }
@@ -233,23 +232,29 @@ public final class SimulationLogic {
                 simulationMap.removePawn(pawn);
             }
         }
-
     }
 
     public boolean shouldSimulationEnd() {
+        int herbivoresLeft = 0;
+        int carnivoresLeft = 0;
         for (Pawn pawn : pawns) {
-            if (simulationParameters.endSimulationWhenNoHerbivoresLeft) {
-                if (pawn instanceof Herbivore)
-                    break;
-            }
-            else if (simulationParameters.endSimulationWhenNoCarnivoresLeft) {
-                if (pawn instanceof Carnivore)
-                    break;
-            }
+            if (pawn instanceof Herbivore)
+                herbivoresLeft++;
+            else if (pawn instanceof  Carnivore)
+                carnivoresLeft++;
+        }
+
+        if (simulationParameters.endSimulationWhenNoHerbivoresLeft) {
+            if (herbivoresLeft == 0)
+                return true;
+        }
+
+        if (simulationParameters.endSimulationWhenNoCarnivoresLeft) {
+            if (carnivoresLeft == 0)
+                return true;
         }
 
         int pawnsCount = simulationMap.getPawns().size();
         return pawnsCount <= simulationParameters.numberOfPawnsToEndSimulation;
     }
-
 }

@@ -8,7 +8,7 @@ public final class DefaultParametersProvider implements ConfigProvider {
         SimulationParameters sP = new SimulationParameters();
         sP.mapHeight = 800;
         sP.mapWidth = 1024;
-        sP.speedOfSimulationMultiplier = 1.0F;
+        sP.speedOfSimulationMultiplier = 4.0F;
         sP.startingNumberOfPlants = 60;
         sP.startingNumberOfHerbivores = 10;
         sP.startingNumberOfCarnivores = 4;
@@ -30,11 +30,11 @@ public final class DefaultParametersProvider implements ConfigProvider {
         sP.colourStringOfPlant = "0x7bf542";
         sP.colourStringOfHerbivore = "0x5cc432";
         sP.colourStringOfCarnivore = "0xc70000";
-        sP.useGUI = false;
+        sP.useGUI = true;
         sP.timeBetweenProgressOutputInTerminal = 1.0F;
-        sP.numberOfPawnsToEndSimulation = 20;
+        sP.numberOfPawnsToEndSimulation = 10;
         sP.endSimulationWhenNoHerbivoresLeft = true;
-        sP.endSimulationWhenNoCarnivoresLeft = true;
+        sP.endSimulationWhenNoCarnivoresLeft = false;
         sP.collisionRangeMultiplierOfSumOfRadii = 0.5F;
         return sP;
     }

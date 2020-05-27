@@ -10,7 +10,6 @@ import java.util.Map;
 
 public final class TerminalProgressLogger extends SimpleProgressOutput {
     private void properTerminalOutput(SimulationMap simulationMap, float elapsedTime) {
-
         System.out.println("Last main loop iteration execution time: " + elapsedTime + " second(s)");
 
         List<Pawn> pawns = simulationMap.getPawns();
