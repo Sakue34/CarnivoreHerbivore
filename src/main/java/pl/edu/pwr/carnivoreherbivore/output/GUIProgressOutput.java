@@ -7,6 +7,11 @@ import pl.edu.pwr.gui.DisplayPane;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Jedna z klas reprezentujących wyjście programu.
+ * Wyświetla ona przebieg symulacji za pomocą interfejsu graficznego Swing.
+ * @see DisplayPane
+ */
 public final class GUIProgressOutput extends SimpleProgressOutput {
     private final SimulationParameters simulationParameters;
 

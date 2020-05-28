@@ -6,6 +6,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Klasa dostarczająca początkowe parametry symulacji pobierając je z pliku na dysku.
+ */
 public class FileConfigProvider implements ConfigProvider {
     String configFilename;
 

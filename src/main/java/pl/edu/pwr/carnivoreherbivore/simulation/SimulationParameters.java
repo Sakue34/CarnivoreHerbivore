@@ -1,5 +1,8 @@
 package pl.edu.pwr.carnivoreherbivore.simulation;
 
+/**
+ * Prosta klasa przechowująca parametry symulacji.
+ */
 public final class SimulationParameters {
     public int mapWidth;
     public int mapHeight;

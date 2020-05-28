@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Klasa używana przez interfejs graficzny Swing.
+ */
 public final class DisplayPane extends JPanel {
     private final List<Pawn> pawns;
     private final Map<Pawn, Position> pawnsPosition;

@@ -3,6 +3,11 @@ package pl.edu.pwr.carnivoreherbivore.output;
 import pl.edu.pwr.carnivoreherbivore.map.SimulationMap;
 import pl.edu.pwr.carnivoreherbivore.simulation.SimulationParameters;
 
+/**
+ * Klasa bazowa dla pozostałych metod wyświetlania przebiegu symulacji.
+ * Pozwala spełnić zasadę DRY, gdyż zajmuję się ona wyświetlaniem najbardziej podstawowych
+ * informacji o postępie symulacji, używanych zarówno przez GUI jak i wyjście przez terminal.
+ */
 public class SimpleProgressOutput implements ProgressOutput {
     protected final SimulationMap simulationMap;
     protected final float timeBetweenOutput;

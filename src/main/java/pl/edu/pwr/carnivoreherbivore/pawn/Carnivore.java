@@ -3,6 +3,9 @@ package pl.edu.pwr.carnivoreherbivore.pawn;
 import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
 import pl.edu.pwr.carnivoreherbivore.simulation.SimulationParameters;
 
+/**
+ * Klasa reprezentująca drapieżnika.
+ */
 public final class Carnivore extends Animal {
     public Carnivore(SimulationParameters simulationParameters) {
         energy = simulationParameters.carnivoreStartingEnergy;

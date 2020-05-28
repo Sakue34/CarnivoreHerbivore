@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Klasa obsługująca całą logikę symulacji.
+ * Tworzona przy każdej iteracji pętli głównej przez główną klasę symulacji.
+ * @see Simulation
+ */
 public final class SimulationLogic {
     private final SimulationParameters simulationParameters;
     private final SimulationMap simulationMap;
@@ -240,7 +245,7 @@ public final class SimulationLogic {
         for (Pawn pawn : pawns) {
             if (pawn instanceof Herbivore)
                 herbivoresLeft++;
-            else if (pawn instanceof  Carnivore)
+            else if (pawn instanceof Carnivore)
                 carnivoresLeft++;
         }
 

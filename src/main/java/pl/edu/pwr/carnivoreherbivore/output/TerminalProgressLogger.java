@@ -8,6 +8,10 @@ import pl.edu.pwr.carnivoreherbivore.utility.Position;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Jedna z klas reprezentujących wyjście programu.
+ * Wyświetla ona przebieg symulacji w konsoli.
+ */
 public final class TerminalProgressLogger extends SimpleProgressOutput {
     private void properTerminalOutput(SimulationMap simulationMap, float elapsedTime) {
         System.out.println("Last main loop iteration execution time: " + elapsedTime  + "in-simulation second(s)");

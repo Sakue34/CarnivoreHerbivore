@@ -3,6 +3,9 @@ package pl.edu.pwr.carnivoreherbivore.pawn;
 import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
 import pl.edu.pwr.carnivoreherbivore.simulation.SimulationParameters;
 
+/**
+ * Klasa reprezentująca roślinę.
+ */
 public final class Plant extends Pawn {
     public Plant(SimulationParameters simulationParameters) {
         energy = simulationParameters.plantNutritionalValue;

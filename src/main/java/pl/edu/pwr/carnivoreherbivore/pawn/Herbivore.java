@@ -3,6 +3,9 @@ package pl.edu.pwr.carnivoreherbivore.pawn;
 import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
 import pl.edu.pwr.carnivoreherbivore.simulation.SimulationParameters;
 
+/**
+ * Klasa reprezentująca roślinożercę.
+ */
 public final class Herbivore extends Animal {
     public Herbivore(SimulationParameters simulationParameters) {
         energy = simulationParameters.herbivoreStartingEnergy;

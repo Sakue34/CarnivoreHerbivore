@@ -3,6 +3,10 @@ package pl.edu.pwr.carnivoreherbivore.simulation;
 import pl.edu.pwr.carnivoreherbivore.map.SimulationMap;
 import pl.edu.pwr.carnivoreherbivore.output.ProgressOutput;
 
+/**
+ * Główna klasa symulacji. Zawiera pętlę główną.
+ * Klasa łączy ze sobą wszystkie komponenty programu.
+ */
 public final class Simulation {
     private final SimulationParameters simulationParameters;
     private final SimulationMap simulationMap;

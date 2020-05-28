@@ -1,5 +1,8 @@
 package pl.edu.pwr.carnivoreherbivore.utility;
 
+/**
+ * Klasa przechowująca pozycję pionków i generująca nową, losową pozycję.
+ */
 public class Position {
     public float x;
     public float y;

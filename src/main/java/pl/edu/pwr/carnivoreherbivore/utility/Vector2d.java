@@ -2,6 +2,11 @@ package pl.edu.pwr.carnivoreherbivore.utility;
 
 import java.lang.Math;
 
+/**
+ * Nasza własna implementacja matematycznego wektora, używana do przechowywania prędkości pionków
+ * i działań wektorowych.
+ */
+
 public class Vector2d {
     public float x;
     public float y;

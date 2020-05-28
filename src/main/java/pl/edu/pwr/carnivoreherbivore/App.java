@@ -5,6 +5,12 @@ import pl.edu.pwr.carnivoreherbivore.simulation.Simulation;
 import pl.edu.pwr.carnivoreherbivore.simulation.SimulationCreator;
 import pl.edu.pwr.carnivoreherbivore.simulation.SimulationParameters;
 
+/**
+ * Główna klasa programu z funkcją main.
+ * Domyślnie próbuje ona użyć parametrów symulacji z pliku (simulation.properties).
+ * Jeśli jej się nie uda, używa parametrów domyślnych.
+ * @see DefaultParametersProvider
+ */
 public final class App {
     private static SimulationParameters getSimulationParameters() {
         ConfigProvider configProvider = new FileConfigProvider("simulation.properties");

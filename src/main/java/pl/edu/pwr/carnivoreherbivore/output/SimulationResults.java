@@ -3,6 +3,10 @@ package pl.edu.pwr.carnivoreherbivore.output;
 import pl.edu.pwr.carnivoreherbivore.map.SimulationMap;
 import pl.edu.pwr.carnivoreherbivore.pawn.*;
 
+/**
+ * Pomocniczna klasa tworzona przez klasy wyświetlające postęp po spełnieniu
+ * warunków zakończenia symulacji.
+ */
 public class SimulationResults {
     private int numberOfCarnivoresLeft = 0;
     private int numberOfHerbivoresLeft = 0;

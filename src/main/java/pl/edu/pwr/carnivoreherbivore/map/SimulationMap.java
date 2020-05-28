@@ -5,6 +5,10 @@ import pl.edu.pwr.carnivoreherbivore.pawn.Pawn;
 
 import java.util.*;
 
+/**
+ * Klasa reprezentująca mapę na której odbywa sie symulacja.
+ * Przechowuje ona pionki i ich pozycje.
+ */
 public final class SimulationMap {
     private final List<Pawn> pawns;
     public List<Pawn> getPawns() {

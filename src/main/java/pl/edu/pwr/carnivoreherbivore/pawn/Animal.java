@@ -2,6 +2,9 @@ package pl.edu.pwr.carnivoreherbivore.pawn;
 
 import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
 
+/**
+ * Klasa abstrakcyjna unifikująca "zwierzęta", czyli pionki które się poruszają.
+ */
 public abstract class Animal extends Pawn {
     protected float energyConsumptionPerSecond;
 

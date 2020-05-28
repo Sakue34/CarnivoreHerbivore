@@ -2,6 +2,11 @@ package pl.edu.pwr.carnivoreherbivore.config;
 
 import pl.edu.pwr.carnivoreherbivore.simulation.SimulationParameters;
 
+/**
+ * Klasa dostarczająca początkowe parametry symulacji, używając do tego domyślnych wartości.
+ * Używana gdy z różnych przyczyn nie udało się odczytać pliku konfiguracyjnego z dysku.
+ * @see pl.edu.pwr.carnivoreherbivore.App
+ */
 public final class DefaultParametersProvider implements ConfigProvider {
     @Override
     public SimulationParameters get() {

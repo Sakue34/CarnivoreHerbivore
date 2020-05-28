@@ -2,6 +2,9 @@ package pl.edu.pwr.carnivoreherbivore.pawn;
 
 import pl.edu.pwr.carnivoreherbivore.utility.Vector2d;
 
+/**
+ * Klasa abstrakcyjna unifikująca wszystkie obiekty (pionki) na mapie.
+ */
 public abstract class Pawn {
     protected float energy;
     protected int radius;

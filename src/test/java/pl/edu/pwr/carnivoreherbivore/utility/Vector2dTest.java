@@ -6,8 +6,10 @@ import java.lang.Math;
 
 import static org.junit.Assert.*;
 
+/**
+ * Unit testy sprawdzające poprawność naszej implementacji wektora matematycznego.
+ */
 public class Vector2dTest {
-
     @Test
     public void equalsShouldReturnTrue() {
         Vector2d vector2d = new Vector2d(Vector2d.FLOATING_POINT_ERROR_MARGIN, Vector2d.FLOATING_POINT_ERROR_MARGIN);

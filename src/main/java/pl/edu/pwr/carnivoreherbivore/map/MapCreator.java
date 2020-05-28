@@ -6,8 +6,11 @@ import pl.edu.pwr.carnivoreherbivore.pawn.Carnivore;
 import pl.edu.pwr.carnivoreherbivore.pawn.Herbivore;
 import pl.edu.pwr.carnivoreherbivore.pawn.Plant;
 
+/**
+ * Klasa tworząca mapę na której odbywa się symulacja i zapełniająca ją początkową liczbą pionków.
+ * @see pl.edu.pwr.carnivoreherbivore.simulation.SimulationCreator
+ */
 public final class MapCreator {
-
     private void createPlants(SimulationMap simulationMap, SimulationParameters simulationParameters) {
         for (int i = 0; i < simulationParameters.startingNumberOfPlants; i++) {
             Position position = Position.getRandomPosition(simulationParameters.mapWidth, simulationParameters.mapHeight);
