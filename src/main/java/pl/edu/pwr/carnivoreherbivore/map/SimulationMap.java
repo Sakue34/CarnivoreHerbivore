@@ -20,14 +20,9 @@ public final class SimulationMap {
         return pawnsPosition;
     }
 
-    public SimulationMap() {
-        pawns = Collections.synchronizedList(new ArrayList<>());
-        pawnsPosition = Collections.synchronizedMap(new HashMap<>());
-    }
-
-    public void addPawn(Pawn pawn, Position position) {
-        pawns.add(pawn);
-        pawnsPosition.put(pawn, position);
+    public SimulationMap(List<Pawn> pawns, Map<Pawn, Position> pawnsPosition) {
+        this.pawns = pawns;
+        this.pawnsPosition = pawnsPosition;
     }
 
     public void removePawn(Pawn pawn) {
