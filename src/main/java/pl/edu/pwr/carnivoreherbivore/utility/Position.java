@@ -18,6 +18,12 @@ public class Position {
         return new Position(x, y);
     }
 
+    public static float getDistanceBetween(Position first, Position second) {
+        float distanceX = first.x - second.x;
+        float distanceY = first.y - second.y;
+        return (float) Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+    }
+
     @Override
     public String toString() {
         return "Position : (" + x + ", " + y + ")";

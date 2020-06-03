@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static pl.edu.pwr.carnivoreherbivore.utility.Position.getDistanceBetween;
+
 /**
  * Klasa obsługująca całą logikę symulacji.
  * Tworzona przy każdej iteracji pętli głównej przez główną klasę symulacji.
@@ -24,12 +26,6 @@ public final class SimulationLogic {
         this.simulationMap = simulationMap;
         this.pawns = simulationMap.getPawns();
         this.pawnsPositions = simulationMap.getPawnsPositions();
-    }
-
-    private float getDistanceBetween(Position first, Position second) {
-        float distanceX = first.x - second.x;
-        float distanceY = first.y - second.y;
-        return (float) Math.sqrt(distanceX * distanceX + distanceY * distanceY);
     }
 
     private void setPawnVelocityToApproachPosition(Pawn pawn, Position pawnPosition, Position destination) {
@@ -50,60 +46,6 @@ public final class SimulationLogic {
         }
     }
 
-    private Pawn getNearestCarnivore(Pawn pawn) {
-        Position pawnPosition = pawnsPositions.get(pawn);
-        Pawn closestCarnivore = null;
-        float closestCarnivoreDistance = Integer.MAX_VALUE;
-        for (Pawn secondPawn : pawns) {
-            if (!(secondPawn instanceof Carnivore))
-                continue;
-            Position secondPawnPosition = pawnsPositions.get(secondPawn);
-            float newDistance = getDistanceBetween(pawnPosition, secondPawnPosition);
-            boolean isCloserThanCurrentClosest = newDistance < closestCarnivoreDistance;
-            if (isCloserThanCurrentClosest) {
-                closestCarnivore = secondPawn;
-                closestCarnivoreDistance = newDistance;
-            }
-        }
-        return closestCarnivore;
-    }
-
-    private Pawn getNearestHerbivore(Pawn pawn) {
-        Position pawnPosition = pawnsPositions.get(pawn);
-        Pawn closestHerbivore = null;
-        float closestHerbivoreDistance = Integer.MAX_VALUE;
-        for (Pawn secondPawn : pawns) {
-            if (!(secondPawn instanceof Herbivore))
-                continue;
-            Position secondPawnPosition = pawnsPositions.get(secondPawn);
-            float newDistance = getDistanceBetween(pawnPosition, secondPawnPosition);
-            boolean isCloserThanCurrentClosest = newDistance < closestHerbivoreDistance;
-            if (isCloserThanCurrentClosest) {
-                closestHerbivore = secondPawn;
-                closestHerbivoreDistance = newDistance;
-            }
-        }
-        return closestHerbivore;
-    }
-
-    private Pawn getNearestPlant(Pawn pawn) {
-        Position pawnPosition = pawnsPositions.get(pawn);
-        Pawn closestPlant = null;
-        float closestPlantDistance = Integer.MAX_VALUE;
-        for (Pawn secondPawn : pawns) {
-            if (!(secondPawn instanceof Plant))
-                continue;
-            Position secondPawnPosition = pawnsPositions.get(secondPawn);
-            float newDistance = getDistanceBetween(pawnPosition, secondPawnPosition);
-            boolean isCloserThanCurrentClosest = newDistance < closestPlantDistance;
-            if (isCloserThanCurrentClosest) {
-                closestPlant = secondPawn;
-                closestPlantDistance = newDistance;
-            }
-        }
-        return closestPlant;
-    }
-
     private boolean isWithinSightRange(Pawn firstPawn, Pawn secondPawn, float sightRange) {
         Position firstPosition = pawnsPositions.get(firstPawn);
         Position secondPosition = pawnsPositions.get(secondPawn);
@@ -114,7 +56,8 @@ public final class SimulationLogic {
         Position herbivorePosition = pawnsPositions.get(herbivore);
         float herbivoreSightRange = simulationParameters.herbivoreSightRange;
 
-        Pawn closestCarnivore = getNearestCarnivore(herbivore);
+        NearestPawnFinder nearestPawnFinder = new NearestPawnFinder(pawns, pawnsPositions);
+        Pawn closestCarnivore = nearestPawnFinder.getNearestCarnivore(herbivore);
         if (closestCarnivore != null) {
             boolean doesHerbivoreSeeClosestCarnivore = isWithinSightRange(herbivore, closestCarnivore, herbivoreSightRange);
             if (doesHerbivoreSeeClosestCarnivore) {
@@ -125,7 +68,7 @@ public final class SimulationLogic {
             }
         }
 
-        Pawn closestPlant = getNearestPlant(herbivore);
+        Pawn closestPlant = nearestPawnFinder.getNearestPlant(herbivore);
         if (closestPlant != null) {
             boolean doesHerbivoreSeeClosestPlant = isWithinSightRange(herbivore, closestPlant, herbivoreSightRange);
             if (doesHerbivoreSeeClosestPlant) {
@@ -139,7 +82,8 @@ public final class SimulationLogic {
         Position carnivorePosition = pawnsPositions.get(carnivore);
         float carnivoreSightRange = simulationParameters.carnivoreSightRange;
 
-        Pawn closestHerbivore = getNearestHerbivore(carnivore);
+        NearestPawnFinder nearestPawnFinder = new NearestPawnFinder(pawns, pawnsPositions);
+        Pawn closestHerbivore = nearestPawnFinder.getNearestHerbivore(carnivore);
         if (closestHerbivore != null) {
             boolean doesCarnivoreSeeClosestHerbivore = isWithinSightRange(carnivore, closestHerbivore, carnivoreSightRange);
             if (doesCarnivoreSeeClosestHerbivore) {
